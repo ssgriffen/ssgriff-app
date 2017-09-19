@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     {
       view: "Blog",
       icon: "speaker_notes",
-      link: "/blog"
+      link: "/blogs"
     },
     {
       view: "Site Stack",

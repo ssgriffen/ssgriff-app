@@ -1,0 +1,17 @@
+<md-card class="blog-card" *ngFor="let blog of blogs">
+  <md-card-header>
+    <div md-card-avatar><md-icon>speaker_notes</md-icon></div>
+    <md-card-title class="blog-title">{{blog.title}}</md-card-title>
+    <md-card-subtitle>{{blog.date | date}}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="../../../assets/img/blog_img_2.jpg" alt="Photo of a Blog">
+  <md-card-content>
+    <p class="blog-excerpt">
+      {{blog.excerpt}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button [routerLink]="['/blog/' + blog.slug]" md-raised-button color="primary">READ MORE</button>
+    <button md-raised-button color="warn">DELETE</button>
+  </md-card-actions>
+</md-card>

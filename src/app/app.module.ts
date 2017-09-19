@@ -16,10 +16,11 @@ import { ApiService } from './services/api.service';
 import { SnackbarService } from './services/snackbar.service';
 import { AboutComponent } from './about/about.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
-import { BlogComponent } from './blog/blog.component';
+import { BlogsComponent } from './blogs/blogs.component';
 import { StackComponent } from './stack/stack.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminComponent } from './admin/admin.component';
+import { BlogComponent } from './blog/blog.component';
 
 
 @NgModule({
@@ -27,10 +28,11 @@ import { AdminComponent } from './admin/admin.component';
     AppComponent,
     AboutComponent,
     PortfolioComponent,
-    BlogComponent,
+    BlogsComponent,
     StackComponent,
     ContactComponent,
-    AdminComponent
+    AdminComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,

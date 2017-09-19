@@ -91,6 +91,14 @@ public currentUser(){
     return this.http_get(this.base_url + "/current_user", true);
 }
 
+public allBlogs(){
+    return this.http_get(this.base_url + "/all_blogs", true);
+}
+
+public singleBlog(data: any){
+    return this.http_form_post(this.base_url + "/single_blog", data);
+}
+
 //encodes objects into strings readable by the backend.
 public encodeObj(obj: any): string {
   let urlSearchParams = new URLSearchParams();
