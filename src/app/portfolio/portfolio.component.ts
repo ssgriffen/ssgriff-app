@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-portfolio',
@@ -6,10 +7,61 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./portfolio.component.css']
 })
 export class PortfolioComponent implements OnInit {
+  loadAPI: Promise<any>;
 
-  constructor() { }
+  embeds: any[] = [
+    {
+      theme_id: "dark",
+      slug: "mWzLqz",
+      version: "2",
+      title: "Tic Tac Toe",
+      preview: "true",
+      href: "http://codepen.io/ssgriffen/pen/mWzLqz/"
+    },
+    {
+      theme_id: "dark",
+      slug: "wJjVWW",
+      version: "2",
+      title: "Pomodoro Clock",
+      preview: "true",
+      href: "http://codepen.io/ssgriffen/pen/wJjVWW/"
+    },
+    {
+      theme_id: "dark",
+      slug: "QdPLPx",
+      version: "2",
+      title: "Simple JS Calc",
+      preview: "true",
+      href: "http://codepen.io/ssgriffen/pen/QdPLPx/"
+    },
+    {
+      theme_id: "dark",
+      slug: "PbgNbL",
+      version: "2",
+      title: "Wiki Search",
+      preview: "true",
+      href: "http://codepen.io/ssgriffen/pen/PbgNbL/"
+    },
+  ];
+
+
+  constructor(
+  ) {
+    this.loadAPI = new Promise((resolve) => {
+      this.loadScript();
+      resolve(true);
+      });
+   }
 
   ngOnInit() {
   }
 
+  public loadScript() {        
+      let  node = document.createElement('script');
+      node.src = "https://production-assets.codepen.io/assets/embed/ei.js";
+      node.type = 'text/javascript';
+      node.async = true;
+      node.charset = 'utf-8';
+      document.getElementsByTagName('head')[0].appendChild(node);
+    }
 }

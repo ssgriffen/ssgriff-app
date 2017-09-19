@@ -1,7 +1,6 @@
 
   .blog-card {
       margin: 20px auto;
-      width: 45%;
   }
 
   .blog-title {
@@ -12,10 +11,3 @@
   .blog-excerpt {
       font-size: 16px;
   }
-
-  /* Landscape phone to portrait tablet */
-@media (max-width: 767px) { 
-    .blog-card {
-        width: 90%;
-    }
-}
