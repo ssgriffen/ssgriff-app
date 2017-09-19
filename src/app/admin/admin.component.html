@@ -1,0 +1,17 @@
+<md-card class="admin-card">
+    <md-card-header>
+      <div md-card-avatar><md-icon>account_circle</md-icon></div>
+      <md-card-title>Enter Your Information</md-card-title>
+      <!-- <md-card-subtitle>Dog Breed</md-card-subtitle> -->
+    </md-card-header>
+    <md-card-content>
+        <form [formGroup]="adminForm" (ngSubmit)="onSubmit()" class="example-form">
+            <md-form-field class="input">
+                <input mdInput placeholder="Password" [formControl]="adminForm.get('password')" [(ngModel)]="password">
+            </md-form-field>
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone btn-col">
+                <button md-raised-button type="submit" [disabled]="!adminForm.valid" color="primary">Login</button>
+            </div>
+        </form>
+    </md-card-content>
+  </md-card>

@@ -1,19 +1,30 @@
-<h2>New Website Coming Soon</h2>
-<h4>Will Feature: </h4>
-<ul>
-  <li>Portfoloio</li>
-  <li>Blog</li>
-  <li>Anything else I think of...</li>
-</ul>
-<h4>Stack: </h4>
-<ul>
-  <li>Angular</li>
-  <li>Python</li>
-  <li>Node/Npm help along the way</li>
-  <li>Featuring Angular Material Design 2</li>
-</ul>
-<md-input-container>
-  <input id="test" name = "test" type="text" mdInput placeholder="Lol.json" dividerColor="accent">
-</md-input-container>
-
-
+<md-sidenav-container fullscreen>
+    <md-sidenav #sidenav mode="push" class="app-sidenav">
+      <md-toolbar color="primary">
+        <!--future svg to go here-->
+        <span class="toolbar-filler"></span>
+        <button md-icon-button (click)="sidenav.toggle()" class="md-icon-button sidenav-toggle-button" [hidden]="!sidenav.opened">
+          <md-icon aria-label="Menu" class="material-icons">close</md-icon>
+        </button>
+      </md-toolbar>
+      <md-nav-list>
+          <a *ngFor="let nav_item of nav_items" md-list-item class="sidenav-link" [routerLink]="[nav_item.link]" (click)="sidenav.toggle()">
+            <md-icon md-list-icon>{{nav_item.icon}}</md-icon>
+            <span class="title" md-line>{{nav_item.view}}</span>
+            <!-- <span md-line class="secondary">test</span> -->
+          </a>
+      </md-nav-list>
+    </md-sidenav>
+    <md-toolbar id="appToolbar" color="primary">
+      <button md-icon-button (click)="sidenav.toggle()" class="md-icon-button sidenav-toggle-button" [hidden]="sidenav.opened">
+                  <md-icon aria-label="Menu" class="material-icons">menu</md-icon>
+          </button>
+      <h1 class="component-title">
+        <a [routerLink]="['/about']" class="title-link">{{title}}</a>
+      </h1>
+      <span class="toolbar-filler"></span>
+      <button *ngIf="!admin" md-button [routerLink]="['/admin']">Admin</button>
+      <button *ngIf="admin" md-button>Logout</button>
+    </md-toolbar>
+    <router-outlet></router-outlet>
+  </md-sidenav-container>

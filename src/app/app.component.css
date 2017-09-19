@@ -1,0 +1,10 @@
+.toolbar-filler {
+    flex: 1 1 auto
+}
+
+
+.title-link {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
