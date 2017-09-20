@@ -1,0 +1,30 @@
+/* .example-card {
+    margin: 20px auto;
+    width: 400px;
+} */
+
+.bio-title {
+    font-size: 18px;
+}
+
+.bio-sub {
+    font-size: 16px;
+}
+
+.bio-content {
+    font-size: 14px;
+}
+
+#back_btn {
+    cursor: pointer;
+}
+
+.chart-holder {
+    height: 450px;
+}
+
+.chart-styling {
+    position: relative; 
+    height: 90%!important; 
+    width:90%!important
+}

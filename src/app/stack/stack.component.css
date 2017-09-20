@@ -1,0 +1,23 @@
+
+/* .example-header-image {
+    background-image: url('../../../assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  } */
+
+  .test {
+      width: 100%;
+  }
+
+  .info-title:hover {
+      cursor: pointer;
+      text-decoration: underline;
+  }
+
+  .subheader {
+      font-size: 16px;
+  }
+
+  /* so line breaks on list for phone */
+  :host >>> .mat-line {
+      white-space: unset!important;
+  }

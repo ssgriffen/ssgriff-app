@@ -1,3 +1,33 @@
-<p>
-  Tech stack for this web app.
-</p>
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+        <md-card>
+          <md-list>
+            <h3 class="subheader" md-subheader>Front End</h3>
+            <span *ngFor="let item of front_end">
+              <md-list-item>
+                <md-icon md-list-icon><img class="test" src="{{item.src}}"></md-icon>
+                <h4 class="info-title" id="{{item.info}}" md-line (click)="openLink($event)">{{item.name}}</h4>
+                <p md-line> {{item.description}} </p>
+              </md-list-item>
+              <md-divider></md-divider>
+          </span>
+          </md-list>
+        </md-card>
+    </div>
+
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+        <md-card>
+          <md-list>
+            <h3 class="subheader" md-subheader>Back End</h3>
+            <span *ngFor="let item of back_end">
+              <md-list-item>
+                <md-icon md-list-icon><img class="test" src="{{item.src}}"></md-icon>
+                <h4 class="info-title" id="{{item.info}}" md-line (click)="openLink($event)">{{item.name}}</h4>
+                <p md-line> {{item.description}} </p>
+              </md-list-item>
+              <md-divider></md-divider>
+          </span>
+          </md-list>
+        </md-card>
+    </div>
+</div>

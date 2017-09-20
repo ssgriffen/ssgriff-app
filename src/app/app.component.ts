@@ -9,7 +9,7 @@ import { SnackbarService } from './services/snackbar.service';
 })
 
 export class AppComponent implements OnInit {
-  title: string = 'Sam Griffen';
+  title: string = 'S.S. Griffen';
   nav_items: any[] = [
     {
       view: "About",

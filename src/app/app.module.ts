@@ -9,6 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
+import { ChartModule } from 'angular2-chartjs';
 
 import { AppRoutingModule } from './app.routing.module';
 import { GlobalService } from './services/global.service';
@@ -41,7 +42,8 @@ import { BlogComponent } from './blog/blog.component';
     HttpModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ChartModule
     
   ],
   providers: [
