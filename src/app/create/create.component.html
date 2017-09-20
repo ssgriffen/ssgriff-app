@@ -1,0 +1,27 @@
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+        <md-card class="create-card">
+            <md-card-header>
+              <div md-card-avatar><md-icon>create</md-icon></div>
+              <md-card-title class="blog-title">New Blog Post</md-card-title>
+            </md-card-header>
+            <md-card-content>
+                <form [formGroup]="createForm" class="example-form">
+                    <md-form-field class="input">
+                        <input mdInput placeholder="Title" [formControl]="createForm.get('title')" [(ngModel)]="title">
+                    </md-form-field>
+                    <md-form-field class="date">
+                        <input mdInput placeholder="Date" [formControl]="createForm.get('date')" [(ngModel)]="date">
+                    </md-form-field>
+                    <md-form-field class="text-area">
+                        <textarea mdTextareaAutosize mdAutosizeMinRows="10" mdInput placeholder="Content..." [formControl]="createForm.get('content')" [(ngModel)]="content"></textarea>
+                    </md-form-field>
+                </form>
+            </md-card-content>
+            <md-card-actions>
+              <button (click)="onSubmit()" md-raised-button color="primary">POST</button>
+              <button md-raised-button color="accent">UPLOAD IMAGES</button>
+            </md-card-actions>
+          </md-card>
+    </div>
+</div>

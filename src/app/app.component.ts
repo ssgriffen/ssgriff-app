@@ -10,6 +10,7 @@ import { SnackbarService } from './services/snackbar.service';
 
 export class AppComponent implements OnInit {
   title: string = 'S.S. Griffen';
+  
   nav_items: any[] = [
     {
       view: "About",
@@ -38,6 +39,14 @@ export class AppComponent implements OnInit {
     }
   ];
 
+  admin_nav: any[] = [
+    {
+      view: "New Blog Post",
+      icon: "create",
+      link: "/create"
+    },
+  ];
+
   admin: boolean = false;
 
   constructor(
@@ -48,9 +57,12 @@ export class AppComponent implements OnInit {
   ngOnInit(){
 
     this.api_service.currentUser().map(res => res).subscribe(
-      data => console.log(data),
+      data => data.result ? this.admin = true : this.admin = false,
       err => this.snackbar.snackBarErrGen("Can't identify admin or not atm...", "", 1500, err)
     );
+  }
 
+  logout(){
+    this.api_service.signout();
   }
 }

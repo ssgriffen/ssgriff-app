@@ -31,6 +31,7 @@ export class ApiService {
     // Submit
     return this.http.post(url, encoded_form, {
          headers: headers,
+         withCredentials: true
     }).map((res: Response) => {
         let data = res.json();
         return data;
@@ -43,7 +44,7 @@ public http_json_post(url: string, data: any, pdf: boolean): any {
     // Create headers
     let headers: any = new Headers();
     headers.append('Content-Type', 'application/json');
-    let options: any = new RequestOptions({ headers: headers});
+    let options: any = new RequestOptions({ headers: headers, withCredentials: true});
  
     // Submit
     return this.http.post(url, data, options).map((res: Response) => {
@@ -68,6 +69,7 @@ public http_get(url: string, to_json: boolean): any {
     if(to_json){
         return this.http.get(url, {
             headers: headers,
+            withCredentials: true
         }).map((res: Response) => {
             let data = res.json();
             return data;
@@ -87,6 +89,15 @@ public signin(form_obj){
     return this.http_form_post(this.base_url + "/signin", form_obj);
 }
 
+public signout(){
+    this.http_get(this.base_url + "/signout", true).subscribe(
+        data => console.log(data),
+        err => console.log(err)
+    )
+
+    location.reload();
+}
+
 public currentUser(){
     return this.http_get(this.base_url + "/current_user", true);
 }
@@ -97,6 +108,10 @@ public allBlogs(){
 
 public singleBlog(data: any){
     return this.http_form_post(this.base_url + "/single_blog", data);
+}
+
+public createPost(data: any){
+    return this.http_form_post(this.base_url + "/create_post", data);
 }
 
 //encodes objects into strings readable by the backend.

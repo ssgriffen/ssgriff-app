@@ -22,6 +22,7 @@ import { StackComponent } from './stack/stack.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminComponent } from './admin/admin.component';
 import { BlogComponent } from './blog/blog.component';
+import { CreateComponent } from './create/create.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { BlogComponent } from './blog/blog.component';
     StackComponent,
     ContactComponent,
     AdminComponent,
-    BlogComponent
+    BlogComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

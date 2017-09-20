@@ -17,6 +17,7 @@ import { SnackbarService } from '../services/snackbar.service';
 })
 export class BlogsComponent implements OnInit {
   blogs: any[] = []
+  admin: boolean = false;
 
   constructor(
     private api_service: ApiService,
@@ -27,7 +28,13 @@ export class BlogsComponent implements OnInit {
     this.api_service.allBlogs().subscribe(
       data => data.result ? this.blogs = data.data : this.blogs = [],
       err => this.snackbar.snackBarErrGen("Can't get blogs atm...", "", 1500, err)
-    )
+    );
+
+    this.api_service.currentUser().map(res => res).subscribe(
+      data => data.result ? this.admin = true : this.admin = false,
+      err => this.snackbar.snackBarErrGen("Can't identify admin or not atm...", "", 1500, err)
+    );
+
   }
 
 }

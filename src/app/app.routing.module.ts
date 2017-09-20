@@ -8,12 +8,14 @@ import { StackComponent } from './stack/stack.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminComponent } from './admin/admin.component';
 import { BlogComponent } from './blog/blog.component';
+import { CreateComponent } from './create/create.component';
 
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: 'portfolio', component: PortfolioComponent},
   { path: 'blogs', component: BlogsComponent},
   { path: 'blog/:slug', component: BlogComponent},
+  { path: 'create', component: CreateComponent},
   { path: 'stack', component: StackComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'admin', component: AdminComponent},

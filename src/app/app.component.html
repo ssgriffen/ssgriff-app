@@ -13,6 +13,14 @@
             <span class="title" md-line>{{nav_item.view}}</span>
             <!-- <span md-line class="secondary">test</span> -->
           </a>
+          <span *ngIf="admin">
+            <md-divider></md-divider>
+            <a *ngFor="let nav_item of admin_nav" md-list-item class="sidenav-link" [routerLink]="[nav_item.link]" (click)="sidenav.toggle()">
+              <md-icon md-list-icon>{{nav_item.icon}}</md-icon>
+              <span class="title" md-line>{{nav_item.view}}</span>
+              <!-- <span md-line class="secondary">test</span> -->
+            </a>
+          </span>
       </md-nav-list>
     </md-sidenav>
     <md-toolbar id="appToolbar" color="primary">
@@ -24,7 +32,7 @@
       </h1>
       <span class="toolbar-filler"></span>
       <button *ngIf="!admin" md-button [routerLink]="['/admin']">Admin</button>
-      <button *ngIf="admin" md-button>Logout</button>
+      <button (click)="logout()" *ngIf="admin" md-button>Logout</button>
     </md-toolbar>
     <router-outlet></router-outlet>
   </md-sidenav-container>
