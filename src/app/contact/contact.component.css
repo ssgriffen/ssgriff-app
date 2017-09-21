@@ -1,0 +1,12 @@
+.text-area {
+    width: 70%;
+}
+
+.small {
+    width: 50px;
+    margin-left: 5px;
+}
+
+.captcha {
+    display: inline;
+}

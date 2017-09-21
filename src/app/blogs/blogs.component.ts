@@ -25,16 +25,41 @@ export class BlogsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.api_service.allBlogs().subscribe(
-      data => data.result ? this.blogs = data.data : this.blogs = [],
-      err => this.snackbar.snackBarErrGen("Can't get blogs atm...", "", 1500, err)
-    );
+    
+    this.getAllBlogs();
 
     this.api_service.currentUser().map(res => res).subscribe(
       data => data.result ? this.admin = true : this.admin = false,
       err => this.snackbar.snackBarErrGen("Can't identify admin or not atm...", "", 1500, err)
     );
 
+  }
+
+  getAllBlogs(){
+    this.blogs = [];
+
+    this.api_service.allBlogs().subscribe(
+      data => data.result ? this.blogs = data.data : this.blogs = [],
+      err => this.snackbar.snackBarErrGen("Can't get blogs atm...", "", 1500, err)
+    );
+
+  }
+
+  deleteBlog(ev: any){
+    let slug: string = ev.currentTarget.id;
+    let to_del: any = {
+      slug: slug
+    }
+
+    this.api_service.deletePost(to_del).subscribe(
+      data => this.goodDel(data),
+      err => this.snackbar.snackBarErrGen("Can't delete atm...", "", 2000, err)
+    );
+
+  }
+
+  goodDel(data){
+    this.getAllBlogs();
   }
 
 }

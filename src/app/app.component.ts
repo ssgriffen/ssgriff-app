@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ApiService } from './services/api.service' 
 import { SnackbarService } from './services/snackbar.service';
+import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -51,7 +52,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private api_service: ApiService,
-    private snackbar: SnackbarService
+    private snackbar: SnackbarService,
+    @Inject(DOCUMENT) private document,
   ){}
 
   ngOnInit(){
@@ -60,6 +62,7 @@ export class AppComponent implements OnInit {
       data => data.result ? this.admin = true : this.admin = false,
       err => this.snackbar.snackBarErrGen("Can't identify admin or not atm...", "", 1500, err)
     );
+    
   }
 
   logout(){

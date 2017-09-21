@@ -14,7 +14,7 @@
           </md-card-content>
           <md-card-actions>
             <button [routerLink]="['/blog/' + blog.slug]" md-raised-button color="primary">READ MORE</button>
-            <button *ngIf="admin" md-raised-button color="warn">DELETE</button>
+            <button id="{{blog.slug}}" (click)="deleteBlog($event)" *ngIf="admin" md-raised-button color="warn">DELETE</button>
           </md-card-actions>
         </md-card>
     </div>

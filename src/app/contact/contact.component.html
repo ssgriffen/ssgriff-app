@@ -1,3 +1,31 @@
-<p>
-  form coming soon
-</p>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--8-col-desktop mdl-cell--2-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+      <md-card class="create-card mat-elevation-z8">
+          <md-card-header>
+            <div md-card-avatar><md-icon>create</md-icon></div>
+            <md-card-title class="blog-title">What's on your mind?</md-card-title>
+          </md-card-header>
+          <md-card-content>
+              <form [formGroup]="contactForm" class="example-form">
+                  <md-form-field class="input">
+                      <input mdInput type="text" placeholder="Name" [formControl]="contactForm.get('name')" [(ngModel)]="name">
+                  </md-form-field>
+                  <md-form-field class="date">
+                      <input type="email" mdInput placeholder="Email" [formControl]="contactForm.get('email')" [(ngModel)]="email">
+                  </md-form-field>
+                  <md-form-field class="text-area">
+                      <textarea mdTextareaAutosize mdAutosizeMinRows="6" mdInput placeholder="Your Message..." [formControl]="contactForm.get('content')" [(ngModel)]="content"></textarea>
+                  </md-form-field>
+              </form>
+              <p class="captcha">{{ran_1}} + {{ran_2}} =   </p>
+              <md-form-field class="small">
+                <input mdInput type="number" placeholder="" [(ngModel)]="captcha_inp">
+            </md-form-field>
+            <br>
+          </md-card-content>
+          <md-card-actions>
+            <button [disabled]="!contactForm.valid || captcha_inp !== captcha_ans" (click)="onSubmit()" md-raised-button color="primary">SEND</button>
+          </md-card-actions>
+        </md-card>
+  </div>
+</div>

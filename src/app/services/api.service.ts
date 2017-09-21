@@ -114,6 +114,14 @@ public createPost(data: any){
     return this.http_form_post(this.base_url + "/create_post", data);
 }
 
+public deletePost(data: any){
+    return this.http_form_post(this.base_url + "/delete_post", data);
+}
+
+public sendEmail(data: any){
+    return this.http_form_post(this.base_url + "/send_mail", data);
+}
+
 //encodes objects into strings readable by the backend.
 public encodeObj(obj: any): string {
   let urlSearchParams = new URLSearchParams();

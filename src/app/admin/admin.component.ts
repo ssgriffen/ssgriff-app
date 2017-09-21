@@ -46,7 +46,7 @@ export class AdminComponent implements OnInit {
       if(isDevMode()){
         url = "http://localhost:4200/";
       } else {
-        url = "https://ssgriff-webview.herokuapp.com/"
+        url = "https://app-samgriffen.herokuapp.com/"
       }
 
       window.location = url;

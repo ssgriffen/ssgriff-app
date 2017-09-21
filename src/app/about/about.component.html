@@ -21,10 +21,14 @@
           </p>
         </md-card-content>
         <md-card-actions>
-          <button color="primary" md-raised-button (click)="photo_bombing = true">PHOTO BOMB</button>
+          <button color="primary" md-raised-button (click)="photo_bombing = true">PHOTO</button>
           <button color="accent" md-raised-button [routerLink]="['/contact']">CONTACT</button>
-          <button color="accent" md-raised-button (click)="github()">GITHUB</button>
-          <button color="accent" md-raised-button (click)="linkedin()">LINKEDIN</button>
+          <button (click)="github()" md-icon-button color="accent">
+            <img class="img-btn" width="100%" src="../../assets/img/git_icon.png">
+          </button>
+          <button (click)="linkedin()" md-icon-button color="accent">
+            <img class="img-btn" width="100%" src="../../assets/img/linked_icon.png">
+          </button>
         </md-card-actions>
       </md-card>
 
