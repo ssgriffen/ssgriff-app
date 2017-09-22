@@ -58,10 +58,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
 
-    this.api_service.currentUser().map(res => res).subscribe(
-      data => data.result ? this.admin = true : this.admin = false,
-      err => this.snackbar.snackBarErrGen("Can't identify admin or not atm...", "", 1500, err)
-    );
+    if(localStorage.getItem('admin')){
+      this.admin = true;
+    }
+    // used to do the cool way below until cookies didnt work in safari >_>
+    // this.api_service.currentUser().map(res => res).subscribe(
+    //   data => data.result ? this.admin = true : this.admin = false,
+    //   err => this.snackbar.snackBarErrGen("Can't identify admin or not atm...", "", 1500, err)
+    // );
     
   }
 

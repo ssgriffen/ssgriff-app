@@ -90,10 +90,12 @@ public signin(form_obj){
 }
 
 public signout(){
-    this.http_get(this.base_url + "/signout", true).subscribe(
-        data => console.log(data),
-        err => console.log(err)
-    )
+    localStorage.clear();
+    // used to do this until cookies in flask stopped working :/
+    // this.http_get(this.base_url + "/signout", true).subscribe(
+    //     data => console.log(data),
+    //     err => console.log(err)
+    // )
 
     location.reload();
 }

@@ -43,6 +43,9 @@ export class AdminComponent implements OnInit {
     if(data.result){
       let url: string = '';
 
+      //doing this b/c safari doesnt like cookies from server... >_>
+      localStorage.setItem('admin', 'true');
+
       if(isDevMode()){
         url = "http://localhost:4200/";
       } else {

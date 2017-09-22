@@ -15,12 +15,12 @@
                     </md-form-field>
                     <md-form-field class="text-area">
                         <textarea mdTextareaAutosize mdAutosizeMinRows="10" mdInput placeholder="Content..." [formControl]="createForm.get('content')" [(ngModel)]="content"></textarea>
-                    </md-form-field>
+                    </md-form-field>    
+                    <!-- <input type="file" name="pic" accept="image/*" [formControl]="createForm.get('content')"> -->
                 </form>
             </md-card-content>
             <md-card-actions>
-              <button (click)="onSubmit()" md-raised-button color="primary">POST</button>
-              <button md-raised-button color="accent">UPLOAD IMAGES</button>
+              <button [disabled]="!createForm.valid" (click)="onSubmit()" md-raised-button color="primary">POST</button>
             </md-card-actions>
           </md-card>
     </div>

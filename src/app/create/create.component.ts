@@ -15,7 +15,7 @@ export class CreateComponent implements OnInit {
   title: string;
   content: string;
   date: string;
-
+  
   constructor(
     private fb: FormBuilder,
     private api_service: ApiService,
@@ -27,11 +27,13 @@ export class CreateComponent implements OnInit {
     this.createForm = this.fb.group({  
       'title': [null,Validators.required],
       'content': [null,Validators.required],
-      'date': [null,Validators.required]
+      'date': [null,Validators.required],
+      // 'pic': [null],
     });
   }
 
   onSubmit(){
+    // console.log(this.createForm.value);
     this.api_service.createPost(this.createForm.value).subscribe(
       data => this.goodPost(data),
       err => this.snackbar.snackBarErrGen("Can't create post atm...", "", 2000, err)
