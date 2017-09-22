@@ -23,6 +23,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AdminComponent } from './admin/admin.component';
 import { BlogComponent } from './blog/blog.component';
 import { CreateComponent } from './create/create.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { CreateComponent } from './create/create.component';
     ContactComponent,
     AdminComponent,
     BlogComponent,
-    CreateComponent
+    CreateComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,

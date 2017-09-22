@@ -38,6 +38,25 @@ export class ApiService {
     });
 }
 
+public http_form_post_files(url: string, data: any): any {
+    
+    // Create headers
+    let headers: any = new Headers();
+    headers.append('enctype', 'multipart/form-data');
+
+    // Encode Form
+    // let encoded_form: string = this.encodeObj(form);
+
+    // Submit
+    return this.http.post(url, data, {
+         headers: headers,
+         withCredentials: true
+    }).map((res: Response) => {
+        let data = res.json();
+        return data;
+    });
+}
+
 public http_json_post(url: string, data: any, pdf: boolean): any {
     // Check if offline for mobile app
   
@@ -110,6 +129,10 @@ public allBlogs(){
 
 public singleBlog(data: any){
     return this.http_form_post(this.base_url + "/single_blog", data);
+}
+
+public uploadCover(data: any){
+    return this.http_form_post_files(this.base_url + "/upload_cover", data);
 }
 
 public createPost(data: any){

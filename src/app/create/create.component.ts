@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, ViewChild } from '@angular/core';
+import { Http } from '@angular/http';
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
 import { ApiService } from '../services/api.service' 
 import { SnackbarService } from '../services/snackbar.service';
@@ -10,7 +11,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-
   createForm: FormGroup;
   title: string;
   content: string;
