@@ -2,7 +2,7 @@ import { Injectable, isDevMode } from '@angular/core';
 
 @Injectable()
 export class GlobalService {
-  BASE_URL: string = "https://api-samgriffen.herokuapp.com/api"; //prod
+  BASE_URL: string = "https://api-samgriffen.herokuapp.com"; //prod
   
   constructor() {
     if(isDevMode()){
