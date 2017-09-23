@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { SnackbarService } from '../services/snackbar.service';
+import { GlobalService } from '../services/global.service';
 
 @Component({
   selector: 'app-blog',
@@ -11,13 +12,17 @@ import { SnackbarService } from '../services/snackbar.service';
 export class BlogComponent implements OnInit {
 
   blog: any = {};
+  base_url: string;
 
   constructor(
     private api_service: ApiService,
     private snackbar: SnackbarService,
     private router: Router, 
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private global_service: GlobalService
+  ) {
+    this.base_url = this.global_service.BASE_URL + "/static/img/blogs";
+   }
 
   ngOnInit() {
 

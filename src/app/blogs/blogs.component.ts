@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { ApiService } from '../services/api.service'
 import { SnackbarService } from '../services/snackbar.service';
+import { GlobalService } from '../services/global.service';
 
 // interface blog {
 //   title: string,
@@ -18,20 +19,23 @@ import { SnackbarService } from '../services/snackbar.service';
 export class BlogsComponent implements OnInit {
   blogs: any[] = []
   admin: boolean = false;
+  base_url: string;
 
   constructor(
     private api_service: ApiService,
-    private snackbar: SnackbarService
-  ) { }
+    private snackbar: SnackbarService,
+    private global_service: GlobalService
+  ) {
+    this.base_url = this.global_service.BASE_URL + "/static/img/blogs";
+   }
 
   ngOnInit() {
     
     this.getAllBlogs();
 
-    this.api_service.currentUser().map(res => res).subscribe(
-      data => data.result ? this.admin = true : this.admin = false,
-      err => this.snackbar.snackBarErrGen("Can't identify admin or not atm...", "", 1500, err)
-    );
+    if(localStorage.getItem('admin')){
+      this.admin = true;
+    }
 
   }
 

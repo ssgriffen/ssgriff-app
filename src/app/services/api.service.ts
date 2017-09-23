@@ -15,7 +15,7 @@ export class ApiService {
     private router: Router,
     private global_service: GlobalService
   ) { 
-    this.base_url = this.global_service.BASE_URL;
+    this.base_url = this.global_service.BASE_URL + "/api";
   }
 
    //*****COMMON SERVER REQUESTS*****
@@ -38,17 +38,18 @@ export class ApiService {
     });
 }
 
-public http_form_post_files(url: string, data: any): any {
+public http_form_post_files(url: string, fileData: any): any {
     
     // Create headers
     let headers: any = new Headers();
     headers.append('enctype', 'multipart/form-data');
+    // headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
     // Encode Form
-    // let encoded_form: string = this.encodeObj(form);
+    // let encoded_form: string = this.encodeObj(slugData);
 
     // Submit
-    return this.http.post(url, data, {
+    return this.http.post(url, fileData, {
          headers: headers,
          withCredentials: true
     }).map((res: Response) => {
@@ -131,8 +132,8 @@ public singleBlog(data: any){
     return this.http_form_post(this.base_url + "/single_blog", data);
 }
 
-public uploadCover(data: any){
-    return this.http_form_post_files(this.base_url + "/upload_cover", data);
+public uploadCover(fileData: any){
+    return this.http_form_post_files(this.base_url + "/upload_cover", fileData);
 }
 
 public createPost(data: any){

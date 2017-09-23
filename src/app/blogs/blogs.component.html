@@ -6,7 +6,7 @@
             <md-card-title class="blog-title">{{blog.title}}</md-card-title>
             <md-card-subtitle>{{blog.date | date}}</md-card-subtitle>
           </md-card-header>
-          <img md-card-image src="../../../assets/img/blog_img_2.jpg" alt="Photo of a Blog">
+          <img md-card-image src="{{base_url}}/{{blog.img[0]}}" alt="Photo of a Blog">
           <md-card-content>
             <p class="blog-excerpt">
               {{blog.excerpt}}

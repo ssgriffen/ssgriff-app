@@ -13,15 +13,12 @@
                     <md-form-field class="date">
                         <input mdInput placeholder="Date" [formControl]="createForm.get('date')" [(ngModel)]="date">
                     </md-form-field>
+                    <md-icon class="today-pick" mdTooltip="Today's Date" mdTooltipPosition="below" (click)="dateToday()">today</md-icon>
                     <md-form-field class="text-area">
                         <textarea mdTextareaAutosize mdAutosizeMinRows="10" mdInput placeholder="Content..." [formControl]="createForm.get('content')" [(ngModel)]="content"></textarea>
                     </md-form-field>    
                 </form>
-                <!-- <form ngNoForm enctype="multipart/form-data" method="post" action="http://127.0.0.1:5000/api/upload_cover">
-                    <input (change)="upload()" [multiple]="multiple" type="file" name="file" #fileInput>
-                    <!-- <input onclick="test(event)" type="submit" value="Upload"> -->
-                <!-- </form> --> 
-                <app-file-upload #fu (change)="fu.upload()" [multiple]="true"></app-file-upload>
+                <input type="file" [multiple]="multiple" #fileInput accept="image/*">
             </md-card-content>
             <md-card-actions>
               <button [disabled]="!createForm.valid" (click)="onSubmit()" md-raised-button color="primary">POST</button>
