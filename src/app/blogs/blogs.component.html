@@ -8,9 +8,8 @@
           </md-card-header>
           <img md-card-image src="{{base_url}}/{{blog.img[0]}}" alt="Photo of a Blog">
           <md-card-content>
-            <p class="blog-excerpt">
-              {{blog.excerpt}}
-            </p>
+            <div [innerHTML]="blog.excerpt" class="blog-excerpt">
+             </div>
           </md-card-content>
           <md-card-actions>
             <button [routerLink]="['/blog/' + blog.slug]" md-raised-button color="primary">READ MORE</button>

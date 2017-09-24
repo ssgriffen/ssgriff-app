@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, Input, ViewChild } from '@angular/core';
 import { Http } from '@angular/http';
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
 import { ApiService } from '../services/api.service' 
+import { GlobalService } from '../services/global.service'
 import { SnackbarService } from '../services/snackbar.service';
 import { Router } from '@angular/router';
 
@@ -19,17 +20,18 @@ export class CreateComponent implements OnInit {
   title: string;
   content: string;
   date: string;
-  post_status: any = {
-    submitted: false,
-    complete: false
-  }
-  
+  img_urls: any[] = [];
+  base_url: string;
+
   constructor(
     private fb: FormBuilder,
     private api_service: ApiService,
     private snackbar: SnackbarService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private global_service: GlobalService
+  ) {
+    this.base_url = this.global_service.BASE_URL + "/static/img/blogs";
+   }
 
   ngOnInit() {
     this.createForm = this.fb.group({  
@@ -44,18 +46,47 @@ export class CreateComponent implements OnInit {
     let inputEl: HTMLInputElement = this.inputEl.nativeElement;
     let fileCount: number = inputEl.files.length;
     let formData = new FormData();
-    let slugData = {slug: slug};
+  
     if (fileCount > 0) { // a file was selected
         for (let i = 0; i < fileCount; i++) {
             let ext = inputEl.files.item(i).name.split('.').pop();
-            formData.append('file[]', inputEl.files.item(i), slug + "_"+ i + "." + ext);
+            let file_name = slug + "_"+ i + "." + ext;
+            formData.append('file[]', inputEl.files.item(i), file_name);
+            // this.img_urls.push( {value: this.base_url + "/" + file_name, view: inputEl.files.item(i).name});
         }
-
+      
         this.api_service.uploadCover(formData).subscribe(
           data => this.uploadedPics(data),
           err => this.failedPics(err)
         )
     }
+  }
+
+  getLinks(){
+    this.img_urls = [];
+    
+    this.api_service.createSlug(this.title).subscribe(
+      data => {
+        let slug = data.slug;
+        let inputEl: HTMLInputElement = this.inputEl.nativeElement;
+        let fileCount: number = inputEl.files.length;
+        let formData = new FormData();
+
+        if (fileCount > 0) { // a file was selected
+          for (let i = 0; i < fileCount; i++) {
+              let ext = inputEl.files.item(i).name.split('.').pop();
+              let file_name = slug + "_"+ i + "." + ext;
+              let img_meta = '<img width="100%" src="';
+              this.img_urls.push( {value: img_meta + this.base_url + "/" + file_name + '">', view: inputEl.files.item(i).name} );
+          }
+        }
+
+        console.log(this.img_urls);
+      },
+      err => {
+        this.snackbar.snackBarErrGen("Cannot get image links", "", 2000, err);
+      }
+    )
   }
 
   dateToday(){

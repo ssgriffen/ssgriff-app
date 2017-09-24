@@ -1,20 +1,18 @@
 <div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone">
-      <p>Obviously more design work to do here...</p>
-        <h2>
-          {{blog.title}}
-        </h2>
-        <h4>
-          {{blog.date | date}}
-        </h4>
-        <p>
-          {{blog.content}}
-        </p>
-    </div>
-    <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-      <md-card *ngFor="let img of blog.imgs">
-          <img md-card-image src="{{base_url}}/{{img}}">
-      </md-card>
+    <div class="mdl-cell mdl-cell--8-col mdl-cell--2-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone">
+        <md-card class="mat-elevation-z8">
+            <md-card-header>
+              <div md-card-avatar><md-icon>import_contacts</md-icon></div>
+              <md-card-title class="blog-title">{{blog.title}}</md-card-title>
+              <md-card-subtitle>{{blog.date | date}}</md-card-subtitle>
+            </md-card-header>
+            <md-card-content [innerHTML]="blog.content">
+            </md-card-content>
+            <md-card-actions>
+              <button md-raised-button color="primary">EDIT</button>
+              <button md-raised-button color="primary">COMMENT</button>
+            </md-card-actions>
+        </md-card>
     </div>
 </div>
 

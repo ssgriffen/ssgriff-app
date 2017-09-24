@@ -128,6 +128,14 @@ public allBlogs(){
     return this.http_get(this.base_url + "/all_blogs", true);
 }
 
+public createSlug(title){
+    let data = {
+        title: title
+    };
+
+    return this.http_form_post(this.base_url + "/create_slug", data)
+}
+
 public singleBlog(data: any){
     return this.http_form_post(this.base_url + "/single_blog", data);
 }

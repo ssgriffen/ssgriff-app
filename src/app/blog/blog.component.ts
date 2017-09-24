@@ -45,5 +45,4 @@ export class BlogComponent implements OnInit {
       this.snackbar.snackBarErrGen("Can't get blog atm...", "", 1500, data);
     }
   }
-
 }
