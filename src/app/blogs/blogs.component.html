@@ -8,11 +8,12 @@
           </md-card-header>
           <img md-card-image src="{{base_url}}/{{blog.img[0]}}" alt="Photo of a Blog">
           <md-card-content>
-            <div [innerHTML]="blog.excerpt" class="blog-excerpt">
+            <div style="word-wrap: break-word" [innerHTML]="blog.excerpt" class="blog-excerpt">
              </div>
           </md-card-content>
           <md-card-actions>
             <button [routerLink]="['/blog/' + blog.slug]" md-raised-button color="primary">READ MORE</button>
+            <button [routerLink]="['/create/' + blog.slug]" *ngIf="admin" md-raised-button color="accent">EDIT</button>
             <button id="{{blog.slug}}" (click)="deleteBlog($event)" *ngIf="admin" md-raised-button color="warn">DELETE</button>
           </md-card-actions>
         </md-card>

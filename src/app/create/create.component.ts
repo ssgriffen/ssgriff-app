@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/for
 import { ApiService } from '../services/api.service' 
 import { GlobalService } from '../services/global.service'
 import { SnackbarService } from '../services/snackbar.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -22,23 +22,53 @@ export class CreateComponent implements OnInit {
   date: string;
   img_urls: any[] = [];
   base_url: string;
+  pre_data_slug: string;
 
   constructor(
     private fb: FormBuilder,
     private api_service: ApiService,
     private snackbar: SnackbarService,
     private router: Router,
-    private global_service: GlobalService
+    private global_service: GlobalService,
+    private route: ActivatedRoute
   ) {
     this.base_url = this.global_service.BASE_URL + "/static/img/blogs";
    }
 
   ngOnInit() {
+
+    this.pre_data_slug = this.route.snapshot.params['slug'];
+
+    if(this.pre_data_slug !== undefined){
+      this.api_service.singleBlog({slug: this.pre_data_slug}).subscribe(
+        data => this.preDataLoad(data),
+        err => this.snackbar.snackBarErrGen("Unable to edit post", "", 2000, err)
+      )
+    }
+
     this.createForm = this.fb.group({  
       'title': [null,Validators.required],
       'content': [null,Validators.required],
       'date': [null,Validators.required]
     });
+  }
+
+  preDataLoad(data){
+    console.log("PRE DATA");
+    console.log(data);
+    data = data.data;
+
+    let post_date = new Date(data.date).toISOString();
+    this.date = post_date.substring(0, post_date.indexOf('T'));
+    this.title = data.title;
+    this.content = data.content;
+
+    let img_meta = '<img width="100%" src="';
+
+    for(var i = 0; i < data.imgs.length; i++){
+      this.img_urls.push( {value: img_meta + this.base_url + "/" + data.imgs[i] + '">', view: "Img " + i} );
+    }
+ 
   }
 
   upload(slug: string) {
@@ -95,10 +125,15 @@ export class CreateComponent implements OnInit {
   onSubmit(){
     console.log("Saving blog");
     console.log(this.createForm.value);
-    this.api_service.createPost(this.createForm.value).subscribe(
-      data => this.goodPost(data),
-      err => this.snackbar.snackBarErrGen("Can't create post atm...", "", 2000, err)
-    )
+
+    if(this.pre_data_slug !== undefined){
+      console.log("NEED TO SUBMIT TO EDITING");
+    } else {
+      this.api_service.createPost(this.createForm.value).subscribe(
+        data => this.goodPost(data),
+        err => this.snackbar.snackBarErrGen("Can't create post atm...", "", 2000, err)
+      )
+    }
   }
 
   goodPost(data){

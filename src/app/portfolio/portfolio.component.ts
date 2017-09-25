@@ -46,14 +46,18 @@ export class PortfolioComponent implements OnInit {
 
 
   constructor(
-  ) {
-    this.loadAPI = new Promise((resolve) => {
-      this.loadScript();
-      resolve(true);
-      });
-   }
+  ) {}
 
   ngOnInit() {
+  }
+
+  onSelectChange(ev: any){
+    if(ev.index === 3){
+      this.loadAPI = new Promise((resolve) => {
+        this.loadScript();
+        resolve(true);
+        });
+    }
   }
 
   public loadScript() {        

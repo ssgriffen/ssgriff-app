@@ -9,8 +9,8 @@
             <md-card-content [innerHTML]="blog.content">
             </md-card-content>
             <md-card-actions>
-              <button md-raised-button color="primary">EDIT</button>
-              <button md-raised-button color="primary">COMMENT</button>
+              <button [routerLink]="['/create/' + blog.slug]" md-raised-button color="primary">EDIT</button>
+              <!-- <button md-raised-button color="primary">COMMENT</button> -->
             </md-card-actions>
         </md-card>
     </div>

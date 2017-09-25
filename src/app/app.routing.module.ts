@@ -16,6 +16,7 @@ const appRoutes: Routes = [
   { path: 'blogs', component: BlogsComponent},
   { path: 'blog/:slug', component: BlogComponent},
   { path: 'create', component: CreateComponent},
+  { path: 'create/:slug', component: CreateComponent},
   { path: 'stack', component: StackComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'admin', component: AdminComponent},
