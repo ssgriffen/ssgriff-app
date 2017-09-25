@@ -43,10 +43,15 @@ export class BlogsComponent implements OnInit {
     this.blogs = [];
 
     this.api_service.allBlogs().subscribe(
-      data => data.result ? this.blogs = data.data : this.blogs = [],
+      data => this.blogData(data),
       err => this.snackbar.snackBarErrGen("Can't get blogs atm...", "", 1500, err)
     );
 
+  }
+
+  blogData(data) {
+    console.log(data);
+    data.result ? this.blogs = data.data : this.blogs = [];
   }
 
   deleteBlog(ev: any){

@@ -1,52 +1,51 @@
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-      <md-card *ngIf="!photo_bombing" class="example-card mat-elevation-z10">
-        <md-card-header>
-          <div md-card-avatar><md-icon>face</md-icon></div>
-          <md-card-title class="bio-title">Sam Griffen</md-card-title>
-          <md-card-subtitle class="bio-sub">23 | Scottsdale, AZ</md-card-subtitle>
-        </md-card-header>
-        <md-card-content class="bio-content">
-          <p>
-          Hello! Thanks for checking out my page. Some quick things about me:
-          </p>
-          <ul>
-            <li>Striving full stack software developer</li>
-            <li>Econ Major</li>
-            <li>Sports Fan</li>
-            <li>Outdoors Enthusiast</li>
-          </ul>
-          <p>
-            Take a look around at some of my work and what not and contact me if you think there might be an opportunity to work together.
-          </p>
-        </md-card-content>
-        <md-card-actions>
-          <button color="primary" md-raised-button (click)="photo_bombing = true">PHOTO</button>
-          <button color="accent" md-raised-button [routerLink]="['/contact']">CONTACT</button>
-          <button (click)="github()" md-icon-button color="accent">
-            <img class="img-btn" width="100%" src="../../assets/img/git_icon.png">
-          </button>
-          <button (click)="linkedin()" md-icon-button color="accent">
-            <img class="img-btn" width="100%" src="../../assets/img/linked_icon.png">
-          </button>
-        </md-card-actions>
-      </md-card>
-
-      <md-card *ngIf="photo_bombing" class="example-card mat-elevation-z10">
+      <md-card class="example-card mat-elevation-z10">
           <md-card-header>
-              <div id="back_btn" (click)="photo_bombing = false" md-card-avatar><md-icon>arrow_back</md-icon></div>
-            <md-card-title class="bio-title">Me in Sedona, AZ</md-card-title>
+            <div md-card-avatar><md-icon>face</md-icon></div>
+            <md-card-title class="bio-title">Sam Griffen</md-card-title>
+            <md-card-subtitle class="bio-sub">23 | Scottsdale, AZ</md-card-subtitle>
           </md-card-header>
-          <img md-card-image src="../../../assets/img/me_sedona.jpeg" alt="Me in Sedona on Jeep tour">
+          <md-card-content class="bio-content">
+            <p>
+            Hello! Thanks for checking out my page. Some quick things about me:
+            </p>
+            <ul>
+              <li>Striving full stack software developer</li>
+              <li>Econ Major</li>
+              <li>Sports Fan</li>
+              <li>Outdoors Enthusiast</li>
+            </ul>
+            <p>
+              Take a look around at some of my work and what not and contact me if you think there might be an opportunity to work together.
+            </p>
+          </md-card-content>
+          <md-card-actions>
+            <button color="primary" md-raised-button [routerLink]="['/contact']">CONTACT</button>
+            <button color="accent" md-raised-button (click)="show_skills === false ? show_skills = true : show_skills = false">Toggle Skills</button>
+            <button (click)="github()" md-icon-button color="accent">
+              <img class="img-btn" width="100%" src="../../assets/img/git_icon.png">
+            </button>
+            <button (click)="linkedin()" md-icon-button color="accent">
+              <img class="img-btn" width="100%" src="../../assets/img/linked_icon.png">
+            </button>
+          </md-card-actions>
         </md-card>
-      </div>
-
-
-  <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-    <div class="chart-holder">
+    <div *ngIf="show_skills" class="chart-holder">
+        <h3 style="text-align:center" >Skills Breakdown</h3>
         <chart class="chart-styling" [type]="'doughnut'" [data]="skills_data" [options]="skills_options"></chart>
     </div>
   </div>
+
+  <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+      <md-card class="example-card mat-elevation-z10">
+          <!-- <md-card-header>
+              <div id="back_btn" (click)="photo_bombing = false" md-card-avatar><md-icon>location_on</md-icon></div>
+            <md-card-title class="bio-title">Sedona, AZ</md-card-title> -->
+          <!-- </md-card-header> -->
+          <img md-card-image src="../../../assets/img/me_sedona.jpeg" alt="Me in Sedona on Jeep tour">
+        </md-card>
+    </div>
 </div>
 
 <!-- skills breakdwown, -->

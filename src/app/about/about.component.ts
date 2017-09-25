@@ -14,10 +14,12 @@ export class AboutComponent implements OnInit {
             label: "Test",
             backgroundColor: ["#0091EA", "#00BFA5","#D50000","#FF6D00",],
             borderWidth: 1,
-            data: [50, 30, 20, 20],
+            data: [50, 30, 20, 10],
         }
     ]
   };
+
+  show_skills: boolean = false;
   
   skills_options: any = {
     responsive: true,

@@ -141,10 +141,12 @@ public singleBlog(data: any){
 }
 
 public uploadCover(fileData: any){
+    console.log("sending to " +  this.base_url + "/upload_cover");
     return this.http_form_post_files(this.base_url + "/upload_cover", fileData);
 }
 
 public createPost(data: any){
+    console.log('creating at: ' + this.base_url + "/create_post");
     return this.http_form_post(this.base_url + "/create_post", data);
 }
 

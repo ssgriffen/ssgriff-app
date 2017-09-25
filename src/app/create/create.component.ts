@@ -37,8 +37,7 @@ export class CreateComponent implements OnInit {
     this.createForm = this.fb.group({  
       'title': [null,Validators.required],
       'content': [null,Validators.required],
-      'date': [null,Validators.required],
-      // 'pic': [null],
+      'date': [null,Validators.required]
     });
   }
 
@@ -52,9 +51,10 @@ export class CreateComponent implements OnInit {
             let ext = inputEl.files.item(i).name.split('.').pop();
             let file_name = slug + "_"+ i + "." + ext;
             formData.append('file[]', inputEl.files.item(i), file_name);
-            // this.img_urls.push( {value: this.base_url + "/" + file_name, view: inputEl.files.item(i).name});
         }
-      
+
+        console.log('uploading pics');
+        
         this.api_service.uploadCover(formData).subscribe(
           data => this.uploadedPics(data),
           err => this.failedPics(err)
@@ -80,8 +80,6 @@ export class CreateComponent implements OnInit {
               this.img_urls.push( {value: img_meta + this.base_url + "/" + file_name + '">', view: inputEl.files.item(i).name} );
           }
         }
-
-        console.log(this.img_urls);
       },
       err => {
         this.snackbar.snackBarErrGen("Cannot get image links", "", 2000, err);
@@ -95,7 +93,8 @@ export class CreateComponent implements OnInit {
   }
 
   onSubmit(){
-    // console.log(this.createForm.value);
+    console.log("Saving blog");
+    console.log(this.createForm.value);
     this.api_service.createPost(this.createForm.value).subscribe(
       data => this.goodPost(data),
       err => this.snackbar.snackBarErrGen("Can't create post atm...", "", 2000, err)
