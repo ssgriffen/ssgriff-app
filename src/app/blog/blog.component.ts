@@ -13,6 +13,7 @@ export class BlogComponent implements OnInit {
 
   blog: any = {};
   base_url: string;
+  base_img_url: string;
 
   constructor(
     private api_service: ApiService,
@@ -22,6 +23,7 @@ export class BlogComponent implements OnInit {
     private global_service: GlobalService
   ) {
     this.base_url = this.global_service.BASE_URL + "/static/img/blogs";
+    this.base_img_url = this.global_service.BASE_IMG_URL;
    }
 
   ngOnInit() {

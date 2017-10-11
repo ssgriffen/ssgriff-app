@@ -5,6 +5,8 @@ import { ApiService } from '../services/api.service'
 import { GlobalService } from '../services/global.service'
 import { SnackbarService } from '../services/snackbar.service';
 import { Router, ActivatedRoute } from '@angular/router';
+// for s3 uploads
+require('aws-sdk/dist/aws-sdk')
 
 @Component({
   selector: 'app-create',
@@ -22,6 +24,7 @@ export class CreateComponent implements OnInit {
   date: string;
   img_urls: any[] = [];
   base_url: string;
+  base_img_url: string;
   pre_data_slug: string;
 
   constructor(
@@ -33,6 +36,7 @@ export class CreateComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.base_url = this.global_service.BASE_URL + "/static/img/blogs";
+    this.base_img_url = this.global_service.BASE_IMG_URL;
    }
 
   ngOnInit() {
@@ -66,7 +70,7 @@ export class CreateComponent implements OnInit {
     let img_meta = '<img width="100%" src="';
 
     for(var i = 0; i < data.imgs.length; i++){
-      this.img_urls.push( {value: img_meta + this.base_url + "/" + data.imgs[i] + '">', view: "Img " + i} );
+      this.img_urls.push( {value: img_meta + this.base_img_url + "/blog_imgs/" + data.imgs[i] + '">', view: "Img " + i} );
     }
  
   }
@@ -82,6 +86,9 @@ export class CreateComponent implements OnInit {
             let file_name = slug + "_"+ i + "." + ext;
             formData.append('file[]', inputEl.files.item(i), file_name);
         }
+
+        console.log((<any>window).AWS);
+
 
         console.log('uploading pics');
         
@@ -107,7 +114,7 @@ export class CreateComponent implements OnInit {
               let ext = inputEl.files.item(i).name.split('.').pop();
               let file_name = slug + "_"+ i + "." + ext;
               let img_meta = '<img width="100%" src="';
-              this.img_urls.push( {value: img_meta + this.base_url + "/" + file_name + '">', view: inputEl.files.item(i).name} );
+              this.img_urls.push( {value: img_meta + this.base_img_url + "/blog_imgs/" + file_name + '">', view: inputEl.files.item(i).name} );
           }
         }
       },
