@@ -11,6 +11,7 @@ import { GlobalService } from '../services/global.service';
 })
 export class BlogComponent implements OnInit {
 
+  admin: boolean = false;
   blog: any = {};
   base_url: string;
   base_img_url: string;
@@ -27,6 +28,10 @@ export class BlogComponent implements OnInit {
    }
 
   ngOnInit() {
+
+    if(localStorage.getItem('admin')){
+      this.admin = true;
+    }
 
     let blog_info: any = {
       slug: this.route.snapshot.params['slug']
@@ -46,5 +51,22 @@ export class BlogComponent implements OnInit {
     } else {
       this.snackbar.snackBarErrGen("Can't get blog atm...", "", 1500, data);
     }
+  }
+
+  deleteBlog(ev: any){
+    let slug: string = ev.currentTarget.id;
+    let to_del: any = {
+      slug: slug
+    }
+
+    this.api_service.deletePost(to_del).subscribe(
+      data => this.goodDel(data),
+      err => this.snackbar.snackBarErrGen("Can't delete atm...", "", 2000, err)
+    );
+
+  }
+
+  goodDel(data){
+    this.router.navigateByUrl("/blogs");
   }
 }

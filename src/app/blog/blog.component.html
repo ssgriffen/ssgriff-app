@@ -9,8 +9,9 @@
             </md-card-header>
             <md-card-content [innerHTML]="blog.content">
             </md-card-content>
-            <md-card-actions>
+            <md-card-actions *ngIf="admin">
               <button [routerLink]="['/create/' + blog.slug]" md-raised-button color="primary">EDIT</button>
+              <button id="{{blog.slug}}" (click)="deleteBlog($event)" md-raised-button color="warn">DELETE</button>
               <!-- <button md-raised-button color="primary">COMMENT</button> -->
             </md-card-actions>
         </md-card>

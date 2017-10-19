@@ -11,11 +11,10 @@ export class GlobalService {
 
    setUrl(): string {
 
-    // if(isDevMode()){
-    //   return this.BASE_URL = "http://127.0.0.1:5000";
-    // }
+    if(isDevMode()){
+      return this.BASE_URL = "http://127.0.0.1:5000";
+    }
     return "https://api-samgriffen.herokuapp.com";
-    // return "http://127.0.0.1:5000";
-
+  
    }
 }

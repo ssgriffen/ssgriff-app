@@ -52,6 +52,12 @@ export class StackComponent implements OnInit {
       info: "https://www.heroku.com/",
       description: "Hosting both front end and back end on Heroku.",
       src: "../../../assets/img/heroku_icon.png"
+    },
+    {
+      name: "Amazon S3",
+      info: "https://aws.amazon.com/s3/",
+      description: "Storage layer for storing blog images",
+      src: "../../../assets/img/s3_icon.png"
     }
   ];
 

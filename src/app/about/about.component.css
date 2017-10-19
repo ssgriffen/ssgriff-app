@@ -1,7 +1,8 @@
-/* .example-card {
-    margin: 20px auto;
-    width: 400px;
-} */
+.cta {
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+}
 
 .bio-title {
     font-size: 18px;
