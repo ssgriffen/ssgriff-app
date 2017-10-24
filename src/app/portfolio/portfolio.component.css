@@ -5,3 +5,8 @@
   .demo-tab-content {
     padding: 16px;
   }
+
+.tab-anchor:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

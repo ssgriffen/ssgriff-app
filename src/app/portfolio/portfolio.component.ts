@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
@@ -6,9 +6,13 @@ import { DOCUMENT } from '@angular/platform-browser';
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.css']
 })
-export class PortfolioComponent implements OnInit {
-  loadAPI: Promise<any>;
 
+export class PortfolioComponent implements OnInit {
+  
+  @ViewChild('tabGroup') tabGroup: any;
+
+  loadAPI: Promise<any>;
+ 
   embeds: any[] = [
     {
       theme_id: "dark",
@@ -52,7 +56,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   onSelectChange(ev: any){
-    if(ev.index === 3){
+    if(ev.index === 1){
       this.loadAPI = new Promise((resolve) => {
         this.loadScript();
         resolve(true);

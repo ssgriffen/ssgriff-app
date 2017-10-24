@@ -20,17 +20,21 @@
     cursor: pointer;
 }
 
-.chart-holder {
-    height: 450px;
+#chart_container {
+    height: 300px!important;
 }
 
 .chart-styling {
-    position: relative; 
-    height: 90%!important; 
-    width:90%!important;
-    margin-left: 15px;
+    /* position: relative;  */
+    height: 100%!important; 
+    width:100%!important;
+    /* margin-left: 15px; */
 }
 
 .img-btn {
     width: 100%;
+}
+
+#skills_card {
+    margin-top: 15px;
 }
