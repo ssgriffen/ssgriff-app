@@ -21,7 +21,7 @@ export class StackComponent implements OnInit {
       src: "../../../assets/img/ang_icon.png"
     },
     {
-      name: "Angular Material 2 (beta.10)",
+      name: "Angular Material 2 (beta.12)",
       info: "https://material.angular.io/",
       description: "Material Design Framework by Angular.",
       src: "../../../assets/img/mats_icon.png"

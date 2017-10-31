@@ -1,70 +1,71 @@
+<span id="top_of_page"></span>
 <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--10-col mdl-cell--1-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-                <md-tab-group #tabGroup (selectChange)="onSelectChange($event)"class="demo-tab-group">
-                    <md-tab label="Overview">
+                <mat-tab-group #tabGroup (selectChange)="onSelectChange($event)"class="demo-tab-group">
+                    <mat-tab label="Overview">
                       <div class="demo-tab-content">
                           <div class="mdl-grid">
                               <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-                                <md-card>
-                                  <md-card-header>
-                                      <div md-card-avatar><md-icon>work</md-icon></div>
-                                      <md-card-title id="overview_title">Skillset Overview</md-card-title>
-                                  </md-card-header>
-                                  <md-card-content>
+                                <mat-card>
+                                  <mat-card-header>
+                                      <div mat-card-avatar><mat-icon>work</mat-icon></div>
+                                      <mat-card-title id="overview_title">Skillset Overview</mat-card-title>
+                                  </mat-card-header>
+                                  <mat-card-content>
                                     <p>
                                       The bulk of my professional work has been on the front end, making it is my clear current strength as a developer. 
                                       I've spent the past year working as an independent contractor doing front end development in Phoenix, Arizona. 
                                       The majority of that time has been with <a href="https://www.annuitycheck.com/" target="_blank">AnnuityCheck.com</a>, a SaaS used in the financial services industry to assist clients with their investment portfolios. 
                                       The front end is built in Angular ^2.0 and uses Angular's Material Design CSS components. I am constantly learing and ultimately am aiming to be competent on both the front and backend.
                                     </p>
-                                  </md-card-content>
-                                </md-card>
+                                  </mat-card-content>
+                                </mat-card>
                               </div>
                               <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-                                  <md-card>
-                                    <md-card-header>
-                                      <md-card-title class="end-title">
+                                  <mat-card>
+                                    <mat-card-header>
+                                      <mat-card-title class="end-title">
                                         Front End
-                                      </md-card-title>
-                                    </md-card-header>
-                                    <md-card-content>
+                                      </mat-card-title>
+                                    </mat-card-header>
+                                    <mat-card-content>
                                         <section class="example-section">
-                                          <md-progress-bar
+                                          <mat-progress-bar
                                           mode="determinate" value="70" color="warn">
-                                          </md-progress-bar>
+                                          </mat-progress-bar>
                                         </section>
                                       <ul *ngFor="let item of front_skills">
                                         <span *ngIf="item.link"><li class="tab-anchor" (click)="tabGroup.selectedIndex = item.tab">{{item.title}}</li></span>
                                         <span *ngIf="!item.link"><li>{{item.title}}</li></span>
                                       </ul>
-                                    </md-card-content>
-                                  </md-card>
+                                    </mat-card-content>
+                                  </mat-card>
                               </div>
                           
                               <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-                                  <md-card>
-                                      <md-card-header>
-                                          <md-card-title class="end-title">
+                                  <mat-card>
+                                      <mat-card-header>
+                                          <mat-card-title class="end-title">
                                             Back End
-                                          </md-card-title>
-                                        </md-card-header>
-                                      <md-card-content>
+                                          </mat-card-title>
+                                        </mat-card-header>
+                                      <mat-card-content>
                                           <section class="example-section">
-                                            <md-progress-bar
+                                            <mat-progress-bar
                                             mode="determinate" value="30" color="warn">
-                                            </md-progress-bar>
+                                            </mat-progress-bar>
                                           </section>
                                           <ul *ngFor="let item of back_skills">
                                               <span *ngIf="item.link"><li class="tab-anchor" (click)="tabGroup.selectedIndex = item.tab">{{item.title}}</li></span>
                                               <span *ngIf="!item.link"><li>{{item.title}}</li></span>
                                           </ul>
-                                      </md-card-content>
-                                  </md-card>
+                                      </mat-card-content>
+                                  </mat-card>
                               </div>
                           </div>
                       </div>
-                    </md-tab>
-                        <md-tab label="Javascript/JQuery">
+                    </mat-tab>
+                        <mat-tab label="Javascript/JQuery">
                           <div class="demo-tab-content">
                               <div class="mdl-grid">
                                   <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
@@ -87,25 +88,66 @@
                                   </div>
                               </div>
                           </div>
-                        </md-tab>
-                        <md-tab label="Angular/Typescript">
+                        </mat-tab>
+                        <mat-tab label="Angular/Typescript">
                           <div class="demo-tab-content">
                               <div class="mdl-grid">
+                                    <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                                            <mat-radio-group #group [(ngModel)]="rad_group">
+                                                    <mat-radio-button class="example-radio-button" value="ac">
+                                                     AnnuityCheck
+                                                    </mat-radio-button>
+                                                    <mat-radio-button value="sgriff">
+                                                     SamGriffen.com
+                                                    </mat-radio-button>
+                                            </mat-radio-group>
+                                    </div>
+                                 
                                   <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-                                     <md-card>
-                                         <md-card-header>
-                                            <div md-card-avatar><md-icon>code</md-icon></div>
-                                            <md-card-title>AnnuityCheck</md-card-title>
-                                         </md-card-header>     
-                                     </md-card>
+                                <span *ngIf="rad_group === 'ac'">
+                                     <mat-card>
+                                         <mat-card-content>
+                                             <p>AnnuityCheck is a SaaS company headquarted in Phoenix, AZ that provides a solution for financial agents to better analyze and project their clients investment portfolios.
+                                                 I have been a front end developer with the company for more than a year now. Unfortunately, I won't be able to post any source code of the application due to confidentiality but below are some some screenshots and descriptions of a few UI/UX features I've built out.
+                                             </p>
+                                             <h6>Tech Stack:</h6>
+                                             <ul>
+                                                 <li>Angular ~4.0</li>
+                                                 <li>Angular Material Design</li>
+                                                 <li>Python</li>
+                                                 <li>PostgreSql</li>
+                                             </ul>
+                                        </mat-card-content>     
+                                     </mat-card>
+                                     <mat-card class="feature-card" *ngFor="let feature of ac_features">
+                                        <mat-card-header>
+                                            <mat-card-title class="feat-title"><b>Feature: </b>{{feature.title}}</mat-card-title>
+                                        </mat-card-header>
+                                        <img mat-card-image src="{{base_img_local}}/{{feature.pic}}">
+                                        <mat-card-content>
+                                            <p><b class="feat-title">Value: </b>{{feature.desc}}</p>
+                                        </mat-card-content>
+                                    </mat-card>
+                                </span>
+                                <span *ngIf="rad_group === 'sgriff'">
+                                     <mat-card>
+                                        <mat-card-content>
+                                            The website you are currently on was built with Angular. Check out the source code below.
+                                        </mat-card-content>
+                                        <mat-card-actions>
+                                            <button color="primary" mat-raised-button (click)="stack()">TECH STACK</button>
+                                            <button color="primary" mat-raised-button (click)="github()">SOURCE CODE</button>
+                                        </mat-card-actions>
+                                    </mat-card>
+                                </span>
                                   </div>
                               </div>
                           </div>  
-                        </md-tab>
-                        <md-tab label="Backend">
+                        </mat-tab>
+                        <mat-tab label="Backend">
                          <div class="demo-tab-content">
                          </div>
-                        </md-tab>
-                      </md-tab-group>
+                        </mat-tab>
+                      </mat-tab-group>
         </div>
     </div>

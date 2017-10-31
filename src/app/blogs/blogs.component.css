@@ -1,20 +1,25 @@
 
   .blog-card {
-      margin: 20px auto;
+    margin: 20px auto;
   }
 
   .blog-title {
-      font-weight: bold;
-      font-size: 16px;
+    font-weight: bold;
+    font-size: 16px;
   }
 
   .blog-excerpt {
-      font-size: 16px;
+    font-size: 16px;
   }
 
   #spinner {
-      display: block;
-      margin: auto;
-      height: 200px;
-      width: 200px;
+    display: block!important;
+    margin: auto!important;
+    height: 200px!important;
+    width: 200px!important;
+  }
+
+  :host >>> .mat-progress-spinner svg {
+    height: 200px!important;
+    width: 200px!important;
   }

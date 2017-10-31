@@ -18,3 +18,12 @@
 .end-title {
   font-size: 18px;
 }
+
+.feature-card {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.feat-title {
+  font-size: 16px;
+}

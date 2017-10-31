@@ -1,12 +1,12 @@
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-      <md-card class="example-card mat-elevation-z10">
-          <md-card-header>
-            <div md-card-avatar><md-icon>face</md-icon></div>
-            <md-card-title class="bio-title">Sam Griffen</md-card-title>
-            <md-card-subtitle class="bio-sub">23 | Scottsdale, AZ</md-card-subtitle>
-          </md-card-header>
-          <md-card-content class="bio-content">
+      <mat-card class="example-card mat-elevation-z10">
+          <mat-card-header>
+            <div mat-card-avatar><mat-icon>face</mat-icon></div>
+            <mat-card-title class="bio-title">Sam Griffen</mat-card-title>
+            <mat-card-subtitle class="bio-sub">23 | Scottsdale, AZ</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content class="bio-content">
             <p>
             Hello! Thanks for checking out my page. Some quick things about me:
             </p>
@@ -20,35 +20,35 @@
             <p>
               Take a look around at some of my <span class="cta" [routerLink]="['/portfolio']">work</span> and <span class="cta" [routerLink]="['/blogs']">blog posts</span>. Feel free <span class="cta" [routerLink]="['/contact']">contact me</span> if you think there might be an opportunity for us to work together.
             </p>
-          </md-card-content>
-          <md-card-actions>
-            <button color="primary" md-raised-button [routerLink]="['/contact']">CONTACT</button>
-            <!-- <button color="accent" md-raised-button (click)="show_skills === false ? show_skills = true : show_skills = false">Toggle Skills</button> -->
-            <button (click)="github()" md-icon-button color="accent">
+          </mat-card-content>
+          <mat-card-actions>
+            <button color="primary" mat-raised-button [routerLink]="['/contact']">CONTACT</button>
+            <!-- <button color="accent" mat-raised-button (click)="show_skills === false ? show_skills = true : show_skills = false">Toggle Skills</button> -->
+            <button (click)="github()" mat-icon-button color="accent">
               <img class="img-btn" width="100%" src="../../assets/img/git_icon.png">
             </button>
-            <button (click)="linkedin()" md-icon-button color="accent">
+            <button (click)="linkedin()" mat-icon-button color="accent">
               <img class="img-btn" width="100%" src="../../assets/img/linked_icon.png">
             </button>
-          </md-card-actions>
-        </md-card>
-        <md-card id="skills_card">
-          <md-card-header>
-            <div md-card-avatar><md-icon>pie_chart</md-icon></div>
-            <md-card-title class="bio-title">Skills Breakdown</md-card-title>
-          </md-card-header>
+          </mat-card-actions>
+        </mat-card>
+        <mat-card id="skills_card">
+          <mat-card-header>
+            <div mat-card-avatar><mat-icon>pie_chart</mat-icon></div>
+            <mat-card-title class="bio-title">Skills Breakdown</mat-card-title>
+          </mat-card-header>
           <div id="chart_container"> 
             <chart class="chart-styling" [type]="'doughnut'" [data]="skills_data" [options]="skills_options"></chart>
           </div>
-          <md-card-actions>
-              <button color="primary" md-raised-button [routerLink]="['/portfolio']">PORTFOLIO</button>
-          </md-card-actions>
-      </md-card>
+          <mat-card-actions>
+              <button color="primary" mat-raised-button [routerLink]="['/portfolio']">PORTFOLIO</button>
+          </mat-card-actions>
+      </mat-card>
   </div>
 
   <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-      <md-card class="example-card mat-elevation-z10">
-          <img md-card-image src="../../../assets/img/me_sedona.jpeg" alt="Me in Sedona on Jeep tour">
-        </md-card>
+      <mat-card class="example-card mat-elevation-z10">
+          <img mat-card-image src="../../../assets/img/me_sedona.jpeg" alt="Me in Sedona on Jeep tour">
+        </mat-card>
     </div>
 </div>

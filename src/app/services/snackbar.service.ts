@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { MdSnackBar, MdDialog, MdDialogRef, MdSnackBarConfig, MdSnackBarContainer } from '@angular/material';
+import { MatSnackBar, MatDialog, MatDialogRef, MatSnackBarConfig, MatSnackBarContainer } from '@angular/material';
 
 @Injectable()
 
 export class SnackbarService {
 
     constructor(
-        private snackBar: MdSnackBar
+        private snackBar: MatSnackBar
     ){}
 
     snackBarErrGen(body: string, close:string, dur: number, err: any){
