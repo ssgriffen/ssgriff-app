@@ -23,7 +23,7 @@
           </md-card-content>
           <md-card-actions>
             <button color="primary" md-raised-button [routerLink]="['/contact']">CONTACT</button>
-            <button color="accent" md-raised-button (click)="show_skills === false ? show_skills = true : show_skills = false">Toggle Skills</button>
+            <!-- <button color="accent" md-raised-button (click)="show_skills === false ? show_skills = true : show_skills = false">Toggle Skills</button> -->
             <button (click)="github()" md-icon-button color="accent">
               <img class="img-btn" width="100%" src="../../assets/img/git_icon.png">
             </button>
@@ -32,7 +32,7 @@
             </button>
           </md-card-actions>
         </md-card>
-        <md-card *ngIf="show_skills" id="skills_card">
+        <md-card id="skills_card">
           <md-card-header>
             <div md-card-avatar><md-icon>pie_chart</md-icon></div>
             <md-card-title class="bio-title">Skills Breakdown</md-card-title>
@@ -41,7 +41,7 @@
             <chart class="chart-styling" [type]="'doughnut'" [data]="skills_data" [options]="skills_options"></chart>
           </div>
           <md-card-actions>
-              <button color="primary" md-raised-button [routerLink]="['/portfolio']">PORFOLIO</button>
+              <button color="primary" md-raised-button [routerLink]="['/portfolio']">PORTFOLIO</button>
           </md-card-actions>
       </md-card>
   </div>
@@ -52,5 +52,3 @@
         </md-card>
     </div>
 </div>
-
-<!-- skills breakdwown, -->

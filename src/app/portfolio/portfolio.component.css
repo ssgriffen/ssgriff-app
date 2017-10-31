@@ -10,3 +10,11 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+#overview_title {
+  font-size: 20px;
+}
+
+.end-title {
+  font-size: 18px;
+}

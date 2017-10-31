@@ -12,42 +12,57 @@ export class PortfolioComponent implements OnInit {
   @ViewChild('tabGroup') tabGroup: any;
 
   loadAPI: Promise<any>;
- 
-  embeds: any[] = [
+
+  front_skills: any[] = [
     {
-      theme_id: "dark",
-      slug: "mWzLqz",
-      version: "2",
-      title: "Tic Tac Toe",
-      preview: "true",
-      href: "http://codepen.io/ssgriffen/pen/mWzLqz/"
+      title: "Javascript/Typescript",
+      link: true,
+      tab: 1
     },
     {
-      theme_id: "dark",
-      slug: "wJjVWW",
-      version: "2",
-      title: "Pomodoro Clock",
-      preview: "true",
-      href: "http://codepen.io/ssgriffen/pen/wJjVWW/"
+      title: "HTML/CSS",
+      link: true,
+      tab: 1
     },
     {
-      theme_id: "dark",
-      slug: "QdPLPx",
-      version: "2",
-      title: "Simple JS Calc",
-      preview: "true",
-      href: "http://codepen.io/ssgriffen/pen/QdPLPx/"
+      title: "JQuery",
+      link: true,
+      tab: 1
     },
     {
-      theme_id: "dark",
-      slug: "PbgNbL",
-      version: "2",
-      title: "Wiki Search",
-      preview: "true",
-      href: "http://codepen.io/ssgriffen/pen/PbgNbL/"
+      title: "Angular (Any similar framework such as Vue)",
+      link: true,
+      tab: 2
+    },
+    {
+      title: "Data Visualization (Highcharts, Charts.js, Admin interfaces)",
+      link: false,
+      tab: null
+    }, 
+    {
+      title: "Material Design Concepts, Bootstrap",
+      link: false,
+      tab: null
     },
   ];
 
+  back_skills: any[] = [
+    {
+      title: "Python",
+      link: true,
+      tab: 3
+    },
+    {
+      title: "Flask",
+      link: true,
+      tab: 3
+    },
+    {
+      title: "Database - PostgreSQL",
+      link: true,
+      tab: 3
+    }
+  ]
 
   constructor(
   ) {}

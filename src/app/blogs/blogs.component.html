@@ -1,5 +1,8 @@
 <div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--6-col mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone">
+  <div *ngIf="blogs.length === 0" class="mdl-cell mdl-cell--6-col mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone">
+      <md-spinner id="spinner"></md-spinner>
+  </div>
+  <div *ngIf="blogs.length > 0" class="mdl-cell mdl-cell--6-col mdl-cell--3-offset-desktop mdl-cell--6-col-tablet mdl-cell--1-offset-tablet mdl-cell--4-col-phone">
       <md-card class="blog-card" *ngFor="let blog of blogs">
           <md-card-header>
             <div md-card-avatar><md-icon>speaker_notes</md-icon></div>

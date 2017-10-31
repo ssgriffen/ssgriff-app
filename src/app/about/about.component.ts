@@ -18,8 +18,6 @@ export class AboutComponent implements OnInit {
         }
     ]
   };
-
-  show_skills: boolean = false;
   
   skills_options: any = {
     responsive: true,
