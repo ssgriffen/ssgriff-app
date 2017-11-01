@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
 import { SnackbarService } from '../services/snackbar.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -22,7 +23,8 @@ export class ContactComponent implements OnInit {
   constructor(
     private api_service: ApiService,
     private snackbar: SnackbarService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -54,6 +56,7 @@ export class ContactComponent implements OnInit {
     console.log(data);
     if(data.result){
       this.snackbar.snackBarSuccGen("Message Successfully Sent!", "", 2000);
+      this.router.navigateByUrl('/about');
     } else {
       this.snackbar.snackBarErrGen("Failed to send email :/", "", 2000, data);
     }
