@@ -119,7 +119,7 @@
                                              </ul>
                                         </mat-card-content>     
                                      </mat-card>
-                                     <mat-card class="feature-card" *ngFor="let feature of ac_features">
+                                     <mat-card class="margin-card" *ngFor="let feature of ac_features">
                                         <mat-card-header>
                                             <mat-card-title class="feat-title"><b>Feature: </b>{{feature.title}}</mat-card-title>
                                         </mat-card-header>
@@ -130,13 +130,16 @@
                                     </mat-card>
                                 </span>
                                 <span *ngIf="rad_group === 'sgriff'">
-                                     <mat-card>
+                                    <mat-card class="margin-card">
+                                        <mat-card-header>
+                                            <div mat-card-avatar><mat-icon>check_circle</mat-icon></div>
+                                            <mat-card-title class="end-title">Typescript - Angular</mat-card-title> 
+                                        </mat-card-header>
                                         <mat-card-content>
-                                            The website you are currently on was built with Angular. Check out the source code below.
+                                            The website you are currently on was built with Angular/Typescript. Check out the source code below.
                                         </mat-card-content>
                                         <mat-card-actions>
-                                            <button color="primary" mat-raised-button (click)="stack()">TECH STACK</button>
-                                            <button style="margin-top:10px;" color="primary" mat-raised-button (click)="github()">SOURCE CODE</button>
+                                            <button color="primary" mat-raised-button (click)="github()">SOURCE CODE</button>
                                         </mat-card-actions>
                                     </mat-card>
                                 </span>
@@ -146,15 +149,34 @@
                         </mat-tab>
                         <mat-tab label="Backend">
                          <div class="demo-tab-content">
-                            <mat-card>
-                                <mat-card-content>
-                                    This website is supported with a Python backend. I use a PostgreSql database provisioned by Heroku to manage the blog info and Amazon s3 bucket for the blog images. Check out the source code below.
-                                </mat-card-content>
-                                <mat-card-actions>
-                                    <button color="primary" mat-raised-button (click)="stack()">TECH STACK</button>
-                                    <button style="margin-top:10px;" color="primary" mat-raised-button (click)="githubBackend()">SOURCE CODE</button>
-                                </mat-card-actions>
-                            </mat-card>
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                                    <mat-card class="margin-card">
+                                        <mat-card-header>
+                                            <div mat-card-avatar><mat-icon>check_circle</mat-icon></div>
+                                            <mat-card-title class="end-title">Python - Flask - PostgreSQL</mat-card-title>
+                                        </mat-card-header>
+                                        <mat-card-content>
+                                            This website is supported with a Python backend. I use a PostgreSql database provisioned by Heroku to manage the blog info and Amazon s3 bucket for the blog images. Check out the source code below.
+                                        </mat-card-content>
+                                        <mat-card-actions>
+                                            <button color="primary" mat-raised-button (click)="githubBackend()">SOURCE CODE</button>
+                                        </mat-card-actions>
+                                    </mat-card>
+                                    <mat-card class="margin-card">
+                                        <mat-card-header>
+                                            <div mat-card-avatar><mat-icon>check_circle</mat-icon></div>
+                                            <mat-card-title class="end-title">Javascript - Node - MongoDB</mat-card-title>
+                                        </mat-card-header>
+                                        <mat-card-content>
+                                            Currently building out a Node.js backend that can support this app as well. I use a MongoDB database the blog info and the same Amazon s3 bucket for the blog images. Check out the source code below.
+                                        </mat-card-content>
+                                        <mat-card-actions>
+                                            <button color="primary" (click)="comingSoon()" mat-raised-button>SOURCE CODE</button>
+                                        </mat-card-actions>
+                                    </mat-card>
+                                </div>
+                            </div>
                          </div>
                         </mat-tab>
                       </mat-tab-group>

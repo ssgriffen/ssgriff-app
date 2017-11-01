@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
+import { SnackbarService } from '../services/snackbar.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -60,10 +61,20 @@ export class PortfolioComponent implements OnInit {
       tab: 3
     },
     {
-      title: "Database - PostgreSQL",
+      title: "PostgreSQL",
       link: true,
       tab: 3
-    }
+    },
+    {
+      title: "Node.js",
+      link: true,
+      tab: 3
+    },
+    {
+      title: "MongoDB",
+      link: true,
+      tab: 3
+    },
   ];
 
   ac_features: any[] = [
@@ -110,6 +121,7 @@ export class PortfolioComponent implements OnInit {
   ];
 
   constructor(
+    private snackbar: SnackbarService
   ) {}
 
   ngOnInit() {
@@ -150,4 +162,8 @@ export class PortfolioComponent implements OnInit {
   scrollUp(){
     document.getElementById('top_of_page').scrollIntoView();       
   } 
+
+  comingSoon(){
+    this.snackbar.snackBarSuccGen("Coming Soon", "", 2000);
+  }
 }
