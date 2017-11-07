@@ -84,11 +84,9 @@ export class CreateComponent implements OnInit {
         for (let i = 0; i < fileCount; i++) {
             let ext = inputEl.files.item(i).name.split('.').pop();
             let file_name = slug + "_"+ i + "." + ext;
+            console.log('filename: ' + file_name);
             formData.append('file[]', inputEl.files.item(i), file_name);
         }
-
-        console.log((<any>window).AWS);
-
 
         console.log('uploading pics');
         
@@ -104,7 +102,9 @@ export class CreateComponent implements OnInit {
     
     this.api_service.createSlug(this.title).subscribe(
       data => {
-        let slug = data.slug;
+        let slug = data.data;
+        console.log("SLUG");
+        console.log(slug);
         let inputEl: HTMLInputElement = this.inputEl.nativeElement;
         let fileCount: number = inputEl.files.length;
         let formData = new FormData();
@@ -130,9 +130,6 @@ export class CreateComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log("Saving blog");
-    console.log(this.createForm.value);
-
     if(this.pre_data_slug !== undefined){
       console.log("NEED TO SUBMIT TO EDITING");
     } else {
@@ -144,6 +141,8 @@ export class CreateComponent implements OnInit {
   }
 
   goodPost(data){
+    console.log('POST return');
+    console.log(data);
     if(data.result){
       this.upload(data.slug); 
     } else {

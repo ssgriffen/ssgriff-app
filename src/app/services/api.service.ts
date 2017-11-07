@@ -132,7 +132,7 @@ public createSlug(title){
     let data = {
         title: title
     };
-
+    console.log(this.base_url + "/create_slug");
     return this.http_form_post(this.base_url + "/create_slug", data)
 }
 

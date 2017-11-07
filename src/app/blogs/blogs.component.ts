@@ -3,21 +3,15 @@ import { ApiService } from '../services/api.service'
 import { SnackbarService } from '../services/snackbar.service';
 import { GlobalService } from '../services/global.service';
 
-// interface blog {
-//   title: string,
-//   id: any,
-//   content: string,
-//   excerpt: string,
-//   date: any
-// }
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blogs.component.html',
   styleUrls: ['./blogs.component.css']
 })
+
 export class BlogsComponent implements OnInit {
-  blogs: any[] = []
+  blogs: any[] = [];
   admin: boolean = false;
   base_url: string;
   base_img_url: string;
@@ -54,6 +48,7 @@ export class BlogsComponent implements OnInit {
   blogData(data) {
     console.log(data);
     data.result ? this.blogs = data.data : this.blogs = [];
+    console.log(this.blogs.length);
   }
 
   deleteBlog(ev: any){

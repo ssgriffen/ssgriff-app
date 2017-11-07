@@ -7,14 +7,18 @@ export class GlobalService {
   
   constructor() {
     this.BASE_URL = this.setUrl();
+    // this.BASE_URL = "http://localhost:8000"
    }
 
    setUrl(): string {
 
     if(isDevMode()){
-      return this.BASE_URL = "http://127.0.0.1:5000";
+      return "http://127.0.0.1:5000";
+      // return "http://localhost:8000";
+      // return "https://api-samgriffen-v2.herokuapp.com/";
     }
     return "https://api-samgriffen.herokuapp.com";
+    // return "https://api-samgriffen-v2.herokuapp.com/";
   
    }
 }

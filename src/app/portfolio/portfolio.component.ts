@@ -155,8 +155,13 @@ export class PortfolioComponent implements OnInit {
     window.open("https://github.com/ssgriffen/ssgriff-app", '_system');
   }
 
-  githubBackend(){
-    window.open("https://github.com/ssgriffen/ssgriff-backend", '_system');
+  githubBackend(lang: string){
+    if(lang === 'py'){
+      window.open("https://github.com/ssgriffen/ssgriff-backend", '_system');
+    } else {
+      window.open("https://github.com/ssgriffen/ssgriff-backend-node", '_system');
+    }
+    
   }
   
   scrollUp(){

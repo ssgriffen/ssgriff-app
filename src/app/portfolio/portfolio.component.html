@@ -160,7 +160,7 @@
                                             This website is supported with a Python backend. I use a PostgreSql database provisioned by Heroku to manage the blog info and Amazon s3 bucket for the blog images. Check out the source code below.
                                         </mat-card-content>
                                         <mat-card-actions>
-                                            <button color="primary" mat-raised-button (click)="githubBackend()">SOURCE CODE</button>
+                                            <button color="primary" mat-raised-button (click)="githubBackend('py')">SOURCE CODE</button>
                                         </mat-card-actions>
                                     </mat-card>
                                     <mat-card class="margin-card">
@@ -172,7 +172,7 @@
                                             Currently building out a Node.js backend that can support this app as well. I use a MongoDB database the blog info and the same Amazon s3 bucket for the blog images. Check out the source code below.
                                         </mat-card-content>
                                         <mat-card-actions>
-                                            <button color="primary" (click)="comingSoon()" mat-raised-button>SOURCE CODE</button>
+                                            <button color="primary" (click)="githubBackend('js')" mat-raised-button>SOURCE CODE</button>
                                         </mat-card-actions>
                                     </mat-card>
                                 </div>
