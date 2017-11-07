@@ -125,6 +125,8 @@ export class PortfolioComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    //if they come from about page link on bottom they will end up in middle
+    this.scrollUp();
   }
 
   onSelectChange(ev: any){
