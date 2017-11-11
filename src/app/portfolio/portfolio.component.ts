@@ -126,7 +126,8 @@ export class PortfolioComponent implements OnInit {
 
   ngOnInit() {
     //if they come from about page link on bottom they will end up in middle
-    this.scrollUp();
+    //fixed header conflicting with this for now.
+    // this.scrollUp();
   }
 
   onSelectChange(ev: any){
@@ -137,7 +138,7 @@ export class PortfolioComponent implements OnInit {
         });
     }
 
-    this.scrollUp();
+    // this.scrollUp();
   }
 
   public loadScript() {        
