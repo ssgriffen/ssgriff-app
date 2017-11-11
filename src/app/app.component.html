@@ -1,6 +1,6 @@
 <mat-sidenav-container fullscreen>
     <mat-sidenav #sidenav mode="push" class="app-sidenav">
-      <mat-toolbar color="primary">
+      <mat-toolbar class="nav-toobar" color="primary">
         <!--future svg to go here-->
         <span class="toolbar-filler"></span>
         <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="!sidenav.opened">
@@ -23,7 +23,7 @@
           </span>
       </mat-nav-list>
     </mat-sidenav>
-    <mat-toolbar id="appToolbar" color="primary">
+    <mat-toolbar class="nav-toolbar" id="appToolbar" color="primary">
       <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="sidenav.opened">
                   <mat-icon aria-label="Menu" class="material-icons">menu</mat-icon>
           </button>
@@ -34,5 +34,8 @@
       <button *ngIf="!admin" mat-button [routerLink]="['/admin']">Admin</button>
       <button (click)="logout()" *ngIf="admin" mat-button>Logout</button>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <div id="tester">
+      <router-outlet></router-outlet>
+    </div>
+    
   </mat-sidenav-container>

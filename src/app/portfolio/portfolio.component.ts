@@ -167,7 +167,7 @@ export class PortfolioComponent implements OnInit {
   }
   
   scrollUp(){
-    document.getElementById('top_of_page').scrollIntoView();       
+    document.getElementById('top_of_page').scrollIntoView(true);       
   } 
 
   comingSoon(){
