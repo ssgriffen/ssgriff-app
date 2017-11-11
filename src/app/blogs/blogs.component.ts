@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { ApiService } from '../services/api.service'
 import { SnackbarService } from '../services/snackbar.service';
 import { GlobalService } from '../services/global.service';
+import * as moment from 'moment';
 
 
 @Component({
@@ -47,7 +48,7 @@ export class BlogsComponent implements OnInit {
 
   blogData(data) {
     console.log(data);
-    data.result ? this.blogs = data.data : this.blogs = [];
+    data.result ? this.blogs = this.order(data.data, 'desc') : this.blogs = [];
     console.log(this.blogs.length);
   }
 
@@ -64,8 +65,26 @@ export class BlogsComponent implements OnInit {
 
   }
 
-  goodDel(data){
+  goodDel(data:any){
     this.getAllBlogs();
+  }
+
+  order(data: any, order: string): any {
+    if(order === 'desc'){
+      data.sort(function(a, b) {
+        a = moment(a.date);
+        b = moment(b.date);
+        return b.diff(a);
+      });
+    } else {
+      data.sort(function(a, b) {
+        a = moment(a.date);
+        b = moment(b.date);
+        return a.diff(b);
+      });
+    }
+    
+    return data;
   }
 
 }
