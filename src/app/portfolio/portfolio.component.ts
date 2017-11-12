@@ -160,7 +160,7 @@ export class PortfolioComponent implements OnInit {
 
   githubBackend(lang: string){
     if(lang === 'py'){
-      window.open("https://github.com/ssgriffen/ssgriff-backend", '_system');
+      window.open("https://github.com/ssgriffen/ssgriff-backend-flask", '_system');
     } else {
       window.open("https://github.com/ssgriffen/ssgriff-backend-node", '_system');
     }

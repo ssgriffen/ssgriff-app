@@ -8,6 +8,7 @@
               <mat-card-subtitle>{{blog.date | date}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content style="min-height: 500px" [innerHTML]="blog.content">
+                <!-- the min height is needed for a scroll issue... -->
             </mat-card-content>
             <mat-card-actions *ngIf="admin">
               <button [routerLink]="['/create/' + blog.slug]" mat-raised-button color="primary">EDIT</button>
