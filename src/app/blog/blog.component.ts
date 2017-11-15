@@ -4,6 +4,8 @@ import { ApiService } from '../services/api.service';
 import { SnackbarService } from '../services/snackbar.service';
 import { GlobalService } from '../services/global.service';
 
+declare var DISQUS: any;
+
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
@@ -28,6 +30,12 @@ export class BlogComponent implements OnInit {
    }
 
   ngOnInit() {
+
+    // DON'T EDIT BELOW THIS LINE
+    var d: any = document, s = d.createElement('script');
+    s.src = 'https://ssgriffen.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', + new Date());
+    (d.head || d.body).appendChild(s);
 
     if(localStorage.getItem('admin')){
       this.admin = true;
