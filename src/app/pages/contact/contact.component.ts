@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
-import { SnackbarService } from '../services/snackbar.service';
+import { SnackbarService } from '../../services/snackbar.service';
 import { Router } from '@angular/router';
 
 @Component({

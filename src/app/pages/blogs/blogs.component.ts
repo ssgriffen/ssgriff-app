@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit} from '@angular/core';
-import { ApiService } from '../services/api.service'
-import { SnackbarService } from '../services/snackbar.service';
-import { GlobalService } from '../services/global.service';
+import { ApiService } from '../../services/api.service'
+import { SnackbarService } from '../../services/snackbar.service';
+import { GlobalService } from '../../services/global.service';
 import * as moment from 'moment';
 
 

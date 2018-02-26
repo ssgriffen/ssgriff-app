@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ApiService } from '../services/api.service';
-import { SnackbarService } from '../services/snackbar.service';
-import { GlobalService } from '../services/global.service';
+import { ApiService } from '../../services/api.service';
+import { SnackbarService } from '../../services/snackbar.service';
+import { GlobalService } from '../../services/global.service';
 
 declare var DISQUS: any;
 

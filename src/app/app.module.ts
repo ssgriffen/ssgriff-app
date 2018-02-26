@@ -15,14 +15,14 @@ import { AppRoutingModule } from './app.routing.module';
 import { GlobalService } from './services/global.service';
 import { ApiService } from './services/api.service';
 import { SnackbarService } from './services/snackbar.service';
-import { AboutComponent } from './about/about.component';
-import { PortfolioComponent } from './portfolio/portfolio.component';
-import { BlogsComponent } from './blogs/blogs.component';
-import { StackComponent } from './stack/stack.component';
-import { ContactComponent } from './contact/contact.component';
-import { AdminComponent } from './admin/admin.component';
-import { BlogComponent } from './blog/blog.component';
-import { CreateComponent } from './create/create.component';
+import { AboutComponent } from './pages/about/about.component';
+import { PortfolioComponent } from './pages/portfolio/portfolio.component';
+import { BlogsComponent } from './pages/blogs/blogs.component';
+import { StackComponent } from './pages/stack/stack.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { BlogComponent } from './pages/blog/blog.component';
+import { CreateComponent } from './pages/create/create.component';
 
 @NgModule({
   declarations: [

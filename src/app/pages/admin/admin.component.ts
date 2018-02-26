@@ -1,8 +1,8 @@
 import { Component, OnInit, isDevMode } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { ActivatedRoute, Router} from '@angular/router';
-import {SnackbarService } from '../services/snackbar.service';
+import {SnackbarService } from '../../services/snackbar.service';
 
 declare var window: any;
 

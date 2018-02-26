@@ -1,9 +1,9 @@
 import { Component, OnInit, ElementRef, Input, ViewChild } from '@angular/core';
 import { Http } from '@angular/http';
 import { FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms';
-import { ApiService } from '../services/api.service' 
-import { GlobalService } from '../services/global.service'
-import { SnackbarService } from '../services/snackbar.service';
+import { ApiService } from '../../services/api.service' 
+import { GlobalService } from '../../services/global.service'
+import { SnackbarService } from '../../services/snackbar.service';
 import { Router, ActivatedRoute } from '@angular/router';
 // for s3 uploads
 require('aws-sdk/dist/aws-sdk')
