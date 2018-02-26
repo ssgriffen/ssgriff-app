@@ -34,7 +34,7 @@
                                           mode="determinate" value="70" color="warn">
                                           </mat-progress-bar>
                                         </section>
-                                      <ul *ngFor="let item of front_skills">
+                                      <ul *ngFor="let item of front_skills; trackBy: tracker;">
                                         <span *ngIf="item.link"><li class="tab-anchor" (click)="tabGroup.selectedIndex = item.tab">{{item.title}}</li></span>
                                         <span *ngIf="!item.link"><li>{{item.title}}</li></span>
                                       </ul>
@@ -55,7 +55,7 @@
                                             mode="determinate" value="30" color="warn">
                                             </mat-progress-bar>
                                           </section>
-                                          <ul *ngFor="let item of back_skills">
+                                          <ul *ngFor="let item of back_skills; trackBy: tracker;">
                                               <span *ngIf="item.link"><li class="tab-anchor" (click)="tabGroup.selectedIndex = item.tab">{{item.title}}</li></span>
                                               <span *ngIf="!item.link"><li>{{item.title}}</li></span>
                                           </ul>
@@ -89,7 +89,7 @@
                               </div>
                           </div>
                         </mat-tab>
-                        <mat-tab label="Angular/Typescript">
+                        <mat-tab label="AnnuityCheck.com">
                           <div class="demo-tab-content">
                               <div class="mdl-grid">
                                     <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
@@ -107,6 +107,7 @@
                                 <span *ngIf="rad_group === 'ac'">
                                      <mat-card>
                                          <mat-card-content>
+                                             <img class="logo" width="200px;" src="../../assets/img/ac_large_steel.png">
                                              <p>AnnuityCheck is a SaaS company headquarted in Phoenix, AZ that provides a solution for financial agents to better analyze and project their clients investment portfolios.
                                                  I have been a front end developer with the company for more than a year now. Unfortunately, I won't be able to post any source code of the application due to confidentiality but below are some some screenshots and descriptions of a few UI/UX features I've built out.
                                              </p>
@@ -119,7 +120,7 @@
                                              </ul>
                                         </mat-card-content>     
                                      </mat-card>
-                                     <mat-card class="margin-card" *ngFor="let feature of ac_features">
+                                     <mat-card class="margin-card" *ngFor="let feature of ac_features; trackBy: tracker;">
                                         <mat-card-header>
                                             <mat-card-title class="feat-title"><b>Feature: </b>{{feature.title}}</mat-card-title>
                                         </mat-card-header>
@@ -139,7 +140,7 @@
                                             The website you are currently on was built with Angular/Typescript. Check out the source code below.
                                         </mat-card-content>
                                         <mat-card-actions>
-                                            <button color="primary" mat-raised-button (click)="github()">SOURCE CODE</button>
+                                            <button color="primary" mat-raised-button (click)="link('https://github.com/ssgriffen/ssgriff-app')">SOURCE CODE</button>
                                         </mat-card-actions>
                                     </mat-card>
                                 </span>
@@ -147,6 +148,39 @@
                               </div>
                           </div>  
                         </mat-tab>
+                        <mat-tab label="Karate.com">
+                            <div class="demo-tab-content">
+                                <div class="mdl-grid">
+                                    <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                                        <mat-card>
+                                            <mat-card-content>
+                                                <img class="logo" src="../../assets/img/karate-logo.png">
+                                                <p>
+                                                    Karate Combat is pioneering the sport of the future. <a href="https://www.karate.com" target="_blank">Karate Combat</a> is a fighting leage based
+                                                    on full contact karate. The league is targeted at millienials and offers a futuristic viewing experience. I built out the mobile app for the company.
+                                                </p>
+                                                <h6>Tech Stack:</h6>
+                                                <ul>
+                                                    <li>Ionic 3</li>
+                                                    <li>Angular.JS (Ionic built on Angular)</li>
+                                                    <li>Prismic CMS API</li>
+                                                    <li>Python API</li>
+                                                </ul>
+                                        </mat-card-content>     
+                                        </mat-card>
+                                    </div>
+                                    <mat-card class="margin-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone" *ngFor="let feature of karate_features; trackBy: tracker;">
+                                        <mat-card-header>
+                                            <mat-card-title class="feat-title"><b>Feature: </b>{{feature.title}}</mat-card-title>
+                                        </mat-card-header>
+                                        <img class="app-img" mat-card-image src="../assets/img/karate_features/{{feature.pic}}">
+                                        <mat-card-content>
+                                            <p><b class="feat-title">Description: </b>{{feature.desc}}</p>
+                                        </mat-card-content>
+                                    </mat-card>
+                                </div>
+                            </div>  
+                          </mat-tab>
                         <mat-tab label="Backend">
                          <div class="demo-tab-content">
                             <div class="mdl-grid">
@@ -160,7 +194,7 @@
                                             This website is supported with a Python backend. I use a PostgreSql database provisioned by Heroku to manage the blog info and Amazon s3 bucket for the blog images. Check out the source code below.
                                         </mat-card-content>
                                         <mat-card-actions>
-                                            <button color="primary" mat-raised-button (click)="githubBackend('py')">SOURCE CODE</button>
+                                            <button color="primary" mat-raised-button (click)="openLink('https://github.com/ssgriffen/ssgriff-backend-flask')">SOURCE CODE</button>
                                         </mat-card-actions>
                                     </mat-card>
                                     <mat-card class="margin-card">
@@ -172,7 +206,7 @@
                                             Currently building out a Node.js backend that can support this app as well. I use a MongoDB database the blog info and the same Amazon s3 bucket for the blog images. Check out the source code below.
                                         </mat-card-content>
                                         <mat-card-actions>
-                                            <button color="primary" (click)="githubBackend('js')" mat-raised-button>SOURCE CODE</button>
+                                            <button color="primary" (click)="openLink('https://github.com/ssgriffen/ssgriff-backend-node')" mat-raised-button>SOURCE CODE</button>
                                         </mat-card-actions>
                                     </mat-card>
                                 </div>

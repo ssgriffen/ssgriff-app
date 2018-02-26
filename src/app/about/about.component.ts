@@ -10,11 +10,11 @@ export class AboutComponent implements OnInit {
   photo_bombing: boolean = false;
   
   skills_data: any = {
-    labels: ["JS/Typescript", "Angular", "Python/Flask", "Node.js", "Database"],
+    labels: ["JS/Typescript", "Angular", "Ionic/Hybrid Mobile Apps", "Python/Flask", "Node.js", "Database"],
     datasets: [
       {
-        backgroundColor: ["#0091EA", "#00BFA5","#D50000","#FF6D00","#C0CA33"],
-        data: [50, 30, 20, 20, 10]
+        backgroundColor: ["#0091EA", "#00BFA5", "#4b875c", "#D50000","#FF6D00","#C0CA33"],
+        data: [50, 38, 30, 20, 20, 10]
       }
     ]
   }

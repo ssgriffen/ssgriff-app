@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import { Component, Inject, ViewChild } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { SnackbarService } from '../services/snackbar.service';
 
@@ -8,7 +8,7 @@ import { SnackbarService } from '../services/snackbar.service';
   styleUrls: ['./portfolio.component.css']
 })
 
-export class PortfolioComponent implements OnInit {
+export class PortfolioComponent {
   
   @ViewChild('tabGroup') tabGroup: any;
 
@@ -36,6 +36,11 @@ export class PortfolioComponent implements OnInit {
       title: "Angular (Any similar framework such as Vue)/Typescript",
       link: true,
       tab: 2
+    },
+    {
+      title: "Ionic 3 (Built on Angular) - Hybrid Mobile Apps",
+      link: true,
+      tab: 3
     },
     {
       title: "Data Visualization (Highcharts, Charts.js, Admin interfaces)",
@@ -120,58 +125,74 @@ export class PortfolioComponent implements OnInit {
     }
   ];
 
+  karate_features: any[] = [
+    {
+      title: "Home Page",
+      desc: "Initial page users see. Includes a featured highlight video, next event information, featured fighter, news story and a viral media item.",
+      pic: "karate_home.png"
+    },
+    {
+      title: "Videos Page",
+      desc: "Split up between highlight and full fight videos. Highlights can include knockout reels, interviews, and viral media. Full fights are 1 on 1 Karate Combat fights between world class atheletes.",
+      pic: "karate_fullfights.png"
+    },
+    {
+      title: "Fighters Page",
+      desc: "A list of fighter cards depicting their picture, country's flag and weight class. I actually used a virtual scroll for this to allow for a large list.",
+      pic: "karate_fighters.png"
+    },
+    {
+      title: 'Fighter Detail Page',
+      desc: "Here's a brief view at the detail page for an individual fighter",
+      pic: "fighter_bio_3.png"
+    },
+    {
+      title: 'Gear Page',
+      desc: "Fully Functional shop for Karate merch and gear.",
+      pic: "karate_gear.png"
+    },
+    {
+      title: 'More Page',
+      desc: "About and Contact info.",
+      pic: "karate_more.png"
+    },
+  ]
+
   constructor(
     private snackbar: SnackbarService
   ) {}
 
-  ngOnInit() {
-    //if they come from about page link on bottom they will end up in middle
-    //fixed header conflicting with this for now.
-    // this.scrollUp();
-  }
-
-  onSelectChange(ev: any){
+  onSelectChange(ev: any): void {
     if(ev.index === 1){
       this.loadAPI = new Promise((resolve) => {
         this.loadScript();
         resolve(true);
         });
     }
-
-    // this.scrollUp();
   }
 
-  public loadScript() {        
-      let  node = document.createElement('script');
-      node.src = "https://production-assets.codepen.io/assets/embed/ei.js";
-      node.type = 'text/javascript';
-      node.async = true;
-      node.charset = 'utf-8';
-      document.getElementsByTagName('head')[0].appendChild(node);
-    }
-    
-  stack(){
-    window.open("https://samgriffen.com/stack", '_system');
+  public loadScript(): void {        
+    let  node = document.createElement('script');
+    node.src = "https://production-assets.codepen.io/assets/embed/ei.js";
+    node.type = 'text/javascript';
+    node.async = true;
+    node.charset = 'utf-8';
+    document.getElementsByTagName('head')[0].appendChild(node);
   }
 
-  github(){
-    window.open("https://github.com/ssgriffen/ssgriff-app", '_system');
-  }
-
-  githubBackend(lang: string){
-    if(lang === 'py'){
-      window.open("https://github.com/ssgriffen/ssgriff-backend-flask", '_system');
-    } else {
-      window.open("https://github.com/ssgriffen/ssgriff-backend-node", '_system');
-    }
-    
+  openLink(link: string): void {
+    window.open(link, '_system');
   }
   
-  scrollUp(){
+  scrollUp(): void {
     document.getElementById('top_of_page').scrollIntoView(true);       
   } 
 
-  comingSoon(){
+  comingSoon(): void {
     this.snackbar.snackBarSuccGen("Coming Soon", "", 2000);
+  }
+
+  tracker(index: number, item: any): number {
+    return index;
   }
 }
