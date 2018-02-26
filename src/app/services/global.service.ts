@@ -15,7 +15,8 @@ export class GlobalService {
 
     if(isDevMode()){
       if(backend === "flask")  return "http://127.0.0.1:5000";
-      return "http://localhost:8000";
+      // return "http://localhost:8000";
+      return "https://api-samgriffen-v2.herokuapp.com";
       
     }
 
