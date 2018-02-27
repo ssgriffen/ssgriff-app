@@ -83,4 +83,8 @@ export class StackComponent implements OnInit {
     window.open(link, '_system');
   }
 
+  link(link: string){
+    window.open(link, '_system');
+  }
+
 }

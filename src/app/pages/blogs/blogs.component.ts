@@ -36,7 +36,7 @@ export class BlogsComponent implements OnInit {
 
   }
 
-  getAllBlogs(){
+  getAllBlogs(): void {
     this.blogs = [];
 
     this.api_service.allBlogs().subscribe(
@@ -46,13 +46,11 @@ export class BlogsComponent implements OnInit {
 
   }
 
-  blogData(data) {
-    console.log(data);
+  blogData(data): void {
     data.result ? this.blogs = this.order(data.data, 'desc') : this.blogs = [];
-    console.log(this.blogs.length);
   }
 
-  deleteBlog(ev: any){
+  deleteBlog(ev: any): void {
     let slug: string = ev.currentTarget.id;
     let to_del: any = {
       slug: slug
@@ -65,7 +63,7 @@ export class BlogsComponent implements OnInit {
 
   }
 
-  goodDel(data:any){
+  goodDel(data:any): void {
     this.getAllBlogs();
   }
 

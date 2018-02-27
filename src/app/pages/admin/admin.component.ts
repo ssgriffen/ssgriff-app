@@ -39,7 +39,7 @@ export class AdminComponent implements OnInit {
 
   }
 
-  handleData(data: any){
+  handleData(data: any): void {
     if(data.result){
       let url: string = '';
 

@@ -6,12 +6,12 @@
       <mat-card class="blog-card" *ngFor="let blog of blogs">
           <mat-card-header>
             <div mat-card-avatar><mat-icon>speaker_notes</mat-icon></div>
-            <mat-card-title class="blog-title">{{blog.title}}</mat-card-title>
-            <mat-card-subtitle>{{blog.date | date}}</mat-card-subtitle>
+            <mat-card-title class="title">{{blog.title}}</mat-card-title>
+            <mat-card-subtitle class="subtitle">{{blog.date | date}}</mat-card-subtitle>
           </mat-card-header>
           <img mat-card-image src="{{base_img_url}}/{{blog.img[0]}}" alt="Photo of a Blog">
           <mat-card-content>
-            <div style="word-wrap: break-word" [innerHTML]="blog.excerpt" class="blog-excerpt">
+            <div style="word-wrap: break-word;" [innerHTML]="blog.excerpt" class="blog-excerpt">
              </div>
           </mat-card-content>
           <mat-card-actions>

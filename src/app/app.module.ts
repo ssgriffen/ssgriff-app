@@ -11,6 +11,7 @@ import { MatRadioModule, MatSliderModule, MatStepperModule, MatFormFieldModule, 
 import 'hammerjs';
 import { ChartModule } from 'angular2-chartjs';
 
+// pages
 import { AppRoutingModule } from './app.routing.module';
 import { GlobalService } from './services/global.service';
 import { ApiService } from './services/api.service';
@@ -24,6 +25,9 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { CreateComponent } from './pages/create/create.component';
 
+// components
+import { ShowcaseCardListComponent } from './components/showcase-card-list/showcase-card-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +38,8 @@ import { CreateComponent } from './pages/create/create.component';
     ContactComponent,
     AdminComponent,
     BlogComponent,
-    CreateComponent
+    CreateComponent,
+    ShowcaseCardListComponent
   ],
   imports: [
     BrowserModule,

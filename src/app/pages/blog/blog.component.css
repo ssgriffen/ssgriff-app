@@ -1,12 +1,8 @@
-.content-wrap {
-    text-align: center;
+:host >>> a {
+    color: #FFC107!important;
 }
 
-/* md-card-content {
-    overflow: hidden;
+:host >>> .blog-content p, .blog-content ul, .blog-content li {
+    font-size: 16px!important;
+    letter-spacing: .03em!important;
 }
-
-md-card-content img {
-    width: 100%;
-    height: auto;
-} */

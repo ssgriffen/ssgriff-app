@@ -1,19 +1,10 @@
+a, .cta {
+    color: #FFC107!important;
+}
+
 .cta {
     text-decoration: underline;
-    color: white;
     cursor: pointer;
-}
-
-.bio-title {
-    font-size: 18px;
-}
-
-.bio-sub {
-    font-size: 16px;
-}
-
-.bio-content {
-    font-size: 14px;
 }
 
 #back_btn {
@@ -35,6 +26,27 @@
     width: 100%;
 }
 
+.prof-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 500px;
+    border-style: inset;
+}
+
+.img-card {
+    background: transparent;
+    width: fit-content;
+    margin: 0 auto;
+    display: block;
+}
+
 #skills_card {
     margin-top: 15px;
 }
+
+
+@media screen and (max-width: 1025px) {
+    .prof-img{
+      max-width: stretch;
+    }
+  }

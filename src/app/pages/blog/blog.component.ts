@@ -52,8 +52,7 @@ export class BlogComponent implements OnInit {
 
   }
 
-  setBlog(data: any){
-    console.log(data);
+  setBlog(data: any): void {
     if(data.result) {
       this.blog = data.data;
     } else {
@@ -61,7 +60,7 @@ export class BlogComponent implements OnInit {
     }
   }
 
-  deleteBlog(ev: any){
+  deleteBlog(ev: any): void {
     let slug: string = ev.currentTarget.id;
     let to_del: any = {
       slug: slug
@@ -74,7 +73,7 @@ export class BlogComponent implements OnInit {
 
   }
 
-  goodDel(data){
+  goodDel(data): void {
     this.router.navigateByUrl("/blogs");
   }
 }

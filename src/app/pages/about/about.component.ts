@@ -38,7 +38,8 @@ export class AboutComponent implements OnInit {
         yAxes: [{
             ticks: {
                 beginAtZero:true,
-                fontColor: "white"
+                fontColor: "white",
+                fontSize: 16
             }
         }],
         xAxes: [{
@@ -56,12 +57,7 @@ export class AboutComponent implements OnInit {
     Chart.defaults.global.scaleBegainAtZero = true;
   }
 
-  github(){
-    window.open("https://github.com/ssgriffen", '_system');
+  openLink(link: string): void {
+    window.open(link, '_system');
   }
-
-  linkedin(){
-    window.open("https://www.linkedin.com/in/sam-griffen-6bb41390/", '_system');
-  }
-
 }

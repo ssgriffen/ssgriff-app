@@ -1,10 +1,34 @@
+a {
+  color: #FFC107!important;
+}
+
+:host >>> .mat-tab-label {
+  font-weight: bold!important;
+  font-size: 17px;
+  letter-spacing: .03em;
+}
+
+.desc {
+    font-size: 17px;
+    letter-spacing: .03em;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+} 
+
+.logo {
+  padding-bottom: 15px;
+}
+
 .demo-tab-group {
     border: 1px solid #e8e8e8;
-  }
+}
   
-  .demo-tab-content {
-    padding: 16px;
-  }
+.demo-tab-content {
+  padding: 16px;
+}
 
 .tab-anchor:hover {
   cursor: pointer;
@@ -13,28 +37,4 @@
 
 #overview_title {
   font-size: 20px;
-}
-
-.end-title {
-  font-size: 18px;
-}
-
-.margin-card {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.app-img {
-  max-width: 300px;
-  display: block;
-  margin: 0 auto 15px auto;
-}
-
-.feat-title {
-  font-size: 16px;
-}
-
-.logo {
-  padding-bottom: 10px;
-  width: 200px;
 }

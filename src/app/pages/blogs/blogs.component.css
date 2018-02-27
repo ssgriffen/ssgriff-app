@@ -3,13 +3,9 @@
     margin: 20px auto;
   }
 
-  .blog-title {
-    font-weight: bold;
-    font-size: 16px;
-  }
-
-  .blog-excerpt {
-    font-size: 16px;
+  :host >>> .blog-excerpt p {  
+    font-size: 16px!important;
+    letter-spacing: .03em!important;
   }
 
   #spinner {

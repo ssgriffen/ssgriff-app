@@ -1,0 +1,56 @@
+.list-grid {
+  padding: 8px 0px;
+}
+
+.margin-card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+  
+.app-img {
+  display: block;
+  margin: 0 auto 15px auto;
+}
+
+.feat-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+} 
+
+.feat-descr {
+  font-size: 17px;
+  letter-spacing: .03em;
+}
+ 
+.logo {
+  padding-bottom: 10px;
+  width: 200px;
+}
+
+.dots {
+  text-align: center;
+}
+
+.dots .dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 10px 5px;
+}
+
+.dots .dot.inactive {
+  background-color: #FFF8E1;
+}
+
+.dots .dot.active {
+  background-color: #FFC107;
+}
+
+@media screen and (max-width: 525px) {
+  .app-img{
+    max-width: stretch;
+  }
+}

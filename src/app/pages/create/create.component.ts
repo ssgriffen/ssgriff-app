@@ -57,17 +57,15 @@ export class CreateComponent implements OnInit {
     });
   }
 
-  preDataLoad(data){
-    console.log("PRE DATA");
-    console.log(data);
+  preDataLoad(data): void {
     data = data.data;
 
-    let post_date = new Date(data.date).toISOString();
+    let post_date: string = new Date(data.date).toISOString();
     this.date = post_date.substring(0, post_date.indexOf('T'));
     this.title = data.title;
     this.content = data.content;
 
-    let img_meta = '<img width="100%" src="';
+    let img_meta: string = '<img width="100%" src="';
 
     for(var i = 0; i < data.imgs.length; i++){
       this.img_urls.push( {value: img_meta + this.base_img_url + "/blog_imgs/" + data.imgs[i] + '">', view: "Img " + i} );
@@ -75,7 +73,7 @@ export class CreateComponent implements OnInit {
  
   }
 
-  upload(slug: string) {
+  upload(slug: string): void {
     let inputEl: HTMLInputElement = this.inputEl.nativeElement;
     let fileCount: number = inputEl.files.length;
     let formData = new FormData();
@@ -87,8 +85,6 @@ export class CreateComponent implements OnInit {
             console.log('filename: ' + file_name);
             formData.append('file[]', inputEl.files.item(i), file_name);
         }
-
-        console.log('uploading pics');
         
         this.api_service.uploadCover(formData).subscribe(
           data => this.uploadedPics(data),
@@ -97,14 +93,12 @@ export class CreateComponent implements OnInit {
     }
   }
 
-  getLinks(){
+  getLinks(): void {
     this.img_urls = [];
     
     this.api_service.createSlug(this.title).subscribe(
       data => {
         let slug = data.data;
-        console.log("SLUG");
-        console.log(slug);
         let inputEl: HTMLInputElement = this.inputEl.nativeElement;
         let fileCount: number = inputEl.files.length;
         let formData = new FormData();
@@ -124,12 +118,12 @@ export class CreateComponent implements OnInit {
     )
   }
 
-  dateToday(){
-    let now = new Date().toISOString();
+  dateToday(): void {
+    let now: string = new Date().toISOString();
     this.date = now.substring(0, now.indexOf('T'));
   }
 
-  onSubmit(){
+  onSubmit(): void {
     if(this.pre_data_slug !== undefined){
       console.log("NEED TO SUBMIT TO EDITING");
     } else {
@@ -140,9 +134,7 @@ export class CreateComponent implements OnInit {
     }
   }
 
-  goodPost(data){
-    console.log('POST return');
-    console.log(data);
+  goodPost(data): void {
     if(data.result){
       this.upload(data.slug); 
     } else {
@@ -150,14 +142,14 @@ export class CreateComponent implements OnInit {
     }
   }
 
-  uploadedPics(data) {
+  uploadedPics(data): void {
     if(data.result){
       this.snackbar.snackBarSuccGen("Success!", "", 2000);
       this.router.navigateByUrl("/blogs");
     }
   }
 
-  failedPics(err){
+  failedPics(err): void {
     this.snackbar.snackBarErrGen("Failed to upload pics", "", 2000, err);
   }
 }

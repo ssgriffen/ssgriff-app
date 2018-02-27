@@ -4,10 +4,10 @@
         <mat-card class="mat-elevation-z8">
             <mat-card-header>
               <div mat-card-avatar><mat-icon>import_contacts</mat-icon></div>
-              <mat-card-title class="blog-title">{{blog.title}}</mat-card-title>
-              <mat-card-subtitle>{{blog.date | date}}</mat-card-subtitle>
+              <mat-card-title class="title">{{blog.title}}</mat-card-title>
+              <mat-card-subtitle class="subtitle">{{blog.date | date}}</mat-card-subtitle>
             </mat-card-header>
-            <mat-card-content style="min-height: 500px" [innerHTML]="blog.content">
+            <mat-card-content class="blog-content" style="min-height: 500px" [innerHTML]="blog.content">
                 <!-- the min height is needed for a scroll issue... -->
             </mat-card-content>
             <mat-card-actions *ngIf="admin">

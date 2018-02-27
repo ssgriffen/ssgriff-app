@@ -1,0 +1,14 @@
+<div class="mdl-grid list-grid">
+  <mat-card class="margin-card mdl-cell" [ngClass]="[cols]" *ngFor="let feature of data; trackBy: tracker;">
+    <mat-card-header>
+        <mat-card-title class="feat-title">{{feature.title}}</mat-card-title>
+    </mat-card-header>
+    <img [style.width]="width" class="app-img" mat-card-image src="../assets/img/{{feature.pics[feature.active_img]}}">
+    <div class="dots">
+        <span (click)="feature.active_img = j;" *ngFor="let img of feature.pics; let j = index; trackBy: tracker;" class="dot" [ngClass]="{'active': feature.active_img === j, 'inactive': feature.active_img !== j}"></span>
+    </div>
+    <mat-card-content>
+        <p class="feat-descr">{{feature.desc[feature.active_img]}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

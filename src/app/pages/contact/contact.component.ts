@@ -43,17 +43,14 @@ export class ContactComponent implements OnInit {
     this.captcha_ans = this.ran_1 + this.ran_2;
   }
 
-  onSubmit(){
-
-    console.log(this.contactForm.value);
+  onSubmit(): void {
     this.api_service.sendEmail(this.contactForm.value).subscribe(
       data => this.goodEmail(data),
       err => this.snackbar.snackBarErrGen("Failed to send email :/", "", 2000, err)
     );
   }
 
-  goodEmail(data) {
-    console.log(data);
+  goodEmail(data): void {
     if(data.result){
       this.snackbar.snackBarSuccGen("Message Successfully Sent!", "", 2000);
       this.router.navigateByUrl('/about');

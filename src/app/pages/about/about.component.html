@@ -3,39 +3,42 @@
       <mat-card class="example-card mat-elevation-z10">
           <mat-card-header>
             <div mat-card-avatar><mat-icon>face</mat-icon></div>
-            <mat-card-title class="bio-title">Sam Griffen</mat-card-title>
-            <mat-card-subtitle class="bio-sub">23 | Scottsdale, AZ</mat-card-subtitle>
+            <mat-card-title class="title">Sam Griffen</mat-card-title>
+            <mat-card-subtitle class="subtitle">23 | Scottsdale, AZ</mat-card-subtitle>
           </mat-card-header>
-          <mat-card-content class="bio-content">
-            <p>
+          <mat-card-content class="content">
+            <p class="content">
             Hello! Thanks for checking out my page. Some quick things about me:
             </p>
-            <ul>
+            <ul class="content">
               <li>Striving full stack software developer</li>
               <li>Majority of professional experience on the front end.</li>
               <li>Econ Major from Uninversity of Arizona.</li>
               <li>Sports Enthusiast</li>
               <li>Enjoy outdoor activities.</li>
             </ul>
-            <p>
+            <p class="content">
               Take a look around at some of my <span class="cta" [routerLink]="['/portfolio']">work</span> and <span class="cta" [routerLink]="['/blogs']">blog posts</span>. Feel free <span class="cta" [routerLink]="['/contact']">contact me</span> if you think there might be an opportunity for us to work together.
             </p>
           </mat-card-content>
           <mat-card-actions>
             <button color="primary" mat-raised-button [routerLink]="['/contact']">CONTACT</button>
             <!-- <button color="accent" mat-raised-button (click)="show_skills === false ? show_skills = true : show_skills = false">Toggle Skills</button> -->
-            <button (click)="github()" mat-icon-button color="accent">
+            <button (click)="openLink('https://github.com/ssgriffen')" mat-icon-button color="accent">
               <img class="img-btn" width="100%" src="../../assets/img/git_icon.png">
             </button>
-            <button (click)="linkedin()" mat-icon-button color="accent">
+            <button (click)="openLink('https://www.linkedin.com/in/sam-griffen-6bb41390/')" mat-icon-button color="accent">
               <img class="img-btn" width="100%" src="../../assets/img/linked_icon.png">
+            </button>
+            <button (click)="openLink('https://www.upwork.com/freelancers/~01961942c5ceb47d00/')" mat-icon-button color="accent">
+              <img class="img-btn" width="100%" src="../../assets/img/upwork_icon.png">
             </button>
           </mat-card-actions>
         </mat-card>
         <mat-card id="skills_card">
           <mat-card-header>
             <div mat-card-avatar><mat-icon>pie_chart</mat-icon></div>
-            <mat-card-title class="bio-title">Skills Breakdown</mat-card-title>
+            <mat-card-title class="title">Skills Breakdown</mat-card-title>
           </mat-card-header>
           <div id="chart_container"> 
             <chart class="chart-styling" [type]="'horizontalBar'" [data]="skills_data" [options]="skills_options"></chart>
@@ -47,8 +50,8 @@
   </div>
 
   <div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-      <mat-card class="example-card mat-elevation-z10">
-          <img mat-card-image src="../../../assets/img/me_sedona.jpeg" alt="Me in Sedona on Jeep tour">
+      <mat-card class="example-card mat-elevation-z4 img-card">
+          <img class="prof-img" mat-card-image src="../../../assets/img/me_sedona.jpeg" alt="Me in Sedona on Jeep tour">
         </mat-card>
     </div>
 </div>
