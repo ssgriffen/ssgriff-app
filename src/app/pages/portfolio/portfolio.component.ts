@@ -1,4 +1,4 @@
-import { Component, Inject, ViewChild } from '@angular/core';
+import { Component, Inject, ViewChild, AfterViewInit } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { SnackbarService } from '../../services/snackbar.service';
 import { PortfolioService } from '../../services/portfolio.service';
@@ -10,9 +10,10 @@ import { PortfolioService } from '../../services/portfolio.service';
   providers: [PortfolioService]
 })
 
-export class PortfolioComponent {
+export class PortfolioComponent implements AfterViewInit {
   
   @ViewChild('tabGroup') tabGroup: any;
+  sideNavContent: any;
 
   loadAPI: Promise<any>;
   base_img_local: string = "../../assets/img/features"
@@ -30,6 +31,10 @@ export class PortfolioComponent {
     this.back_skills = this.portfolio_service.back_skills;
     this.ac_features = this.portfolio_service.ac_features;
     this.karate_features = this.portfolio_service.karate_features;
+  }
+
+  ngAfterViewInit(): void {
+    this.sideNavContent = document.getElementsByTagName("mat-sidenav-content")[0];
   }
 
   onSelectChange(ev: any): void {
@@ -56,7 +61,7 @@ export class PortfolioComponent {
   }
   
   scrollUp(): void {
-    document.getElementById('top_of_page').scrollIntoView(true);       
+    this.sideNavContent.scrollTop = 0;    
   } 
 
   comingSoon(): void {

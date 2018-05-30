@@ -1,7 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
 import { ApiService } from './services/api.service' 
 import { SnackbarService } from './services/snackbar.service';
 import { DOCUMENT } from '@angular/platform-browser';
+import { GlobalService } from './services/global.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,9 @@ import { DOCUMENT } from '@angular/platform-browser';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title: string = 'S.S. Griffen';
+  sideNavContent: any;
   
   nav_items: any[] = [
     {
@@ -53,7 +55,8 @@ export class AppComponent implements OnInit {
   constructor(
     private api_service: ApiService,
     private snackbar: SnackbarService,
-    @Inject(DOCUMENT) private document,
+    private global_service: GlobalService,
+    @Inject(DOCUMENT) private document
   ){}
 
   ngOnInit(){
@@ -66,7 +69,15 @@ export class AppComponent implements OnInit {
     //   data => data.result ? this.admin = true : this.admin = false,
     //   err => this.snackbar.snackBarErrGen("Can't identify admin or not atm...", "", 1500, err)
     // );
-    
+  }
+
+  ngAfterViewInit(): void {
+    this.sideNavContent = document.getElementsByTagName("mat-sidenav-content")[0];
+  }
+
+  onDeactivate() {
+    // make route changes scroll to top
+    this.sideNavContent.scrollTop = 0;
   }
 
   logout(){

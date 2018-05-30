@@ -35,7 +35,7 @@
                                           </mat-progress-bar>
                                         </section>
                                       <ul *ngFor="let item of front_skills; trackBy: tracker;">
-                                        <span *ngIf="item.link"><li class="tab-anchor desc" (click)="tabGroup.selectedIndex = item.tab">{{item.title}}</li></span>
+                                        <span *ngIf="item.link"><li class="tab-anchor desc" (click)="tabGroup.selectedIndex = item.tab; scrollUp();">{{item.title}}</li></span>
                                         <span *ngIf="!item.link"><li class="desc">{{item.title}}</li></span>
                                       </ul>
                                     </mat-card-content>

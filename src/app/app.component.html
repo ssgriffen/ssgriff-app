@@ -35,7 +35,7 @@
       <button (click)="logout()" *ngIf="admin" mat-button>Logout</button>
     </mat-toolbar>
     <div id="tester">
-      <router-outlet></router-outlet>
+      <router-outlet (deactivate)="onDeactivate()" ></router-outlet>
     </div>
     
   </mat-sidenav-container>
