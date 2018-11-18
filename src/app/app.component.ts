@@ -25,11 +25,11 @@ export class AppComponent implements OnInit, AfterViewInit {
       icon: "work",
       link: "/portfolio"
     },
-    {
-      view: "Blog",
-      icon: "speaker_notes",
-      link: "/blogs"
-    },
+    // {
+    //   view: "Blog",
+    //   icon: "speaker_notes",
+    //   link: "/blogs"
+    // },
     {
       view: "Site Stack",
       icon: "build",

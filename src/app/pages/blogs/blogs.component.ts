@@ -28,7 +28,7 @@ export class BlogsComponent implements OnInit {
 
   ngOnInit() {
     
-    this.getAllBlogs();
+    // this.getAllBlogs();
 
     if(localStorage.getItem('admin')){
       this.admin = true;
