@@ -7,8 +7,8 @@ export class GlobalService {
   
   constructor() {
     //backends provide identical support made 2 for practice
-    // this.BASE_URL = this.setUrl("flask");
-    this.BASE_URL = this.setUrl("node");
+    this.BASE_URL = this.setUrl("flask");
+    // this.BASE_URL = this.setUrl("node");
    }
 
    setUrl(backend: string): string {
