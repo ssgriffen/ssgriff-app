@@ -37,9 +37,9 @@ export class PortfolioComponent implements AfterViewInit {
     this.sideNavContent = document.getElementsByTagName("mat-sidenav-content")[0];
   }
 
-  onSelectChange(ev: any): void {
+  tabIdxChange(index: number): void {
     // load script for js/jquery page
-    if(ev.index === 3){
+    if(index === 4){
       this.loadAPI = new Promise((resolve) => {
         this.loadScript();
         resolve(true);

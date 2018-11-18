@@ -1,7 +1,7 @@
 <span id="top_of_page"></span>
 <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--10-col mdl-cell--1-offset-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-                <mat-tab-group #tabGroup (selectChange)="onSelectChange($event)"class="demo-tab-group">
+                <mat-tab-group #tabGroup (selectedIndexChange)="tabIdxChange($event)"class="demo-tab-group">
                     <mat-tab label="Overview">
                       <div class="demo-tab-content">
                           <div class="mdl-grid">
@@ -12,11 +12,10 @@
                                       <mat-card-title class="title" id="overview_title">Skillset &amp; Professional Overview</mat-card-title>
                                   </mat-card-header>
                                   <mat-card-content>
-                                    <p class="desc">
-                                      The bulk of my professional work has been on the front end, making it is my clear current strength as a developer. 
+                                    <p class="desc"> 
                                       I've spent the past couple years working as an independent contractor out of Phoenix, AZ.
                                       During this time I've worked with <a href="https://www.karate.com/" target="_blank">Karate Combat</a> building out their hybrid mobile app using the <a href="https://ionicframework.com/" target="_blank">Ionic Framework</a> and <a href="https://www.annuitycheck.com/" target="_blank">AnnuityCheck.com</a>
-                                      building their Angular.JS web application. I enjoy working on the client-side but am aiming to be a competent fullstack developer in the future.
+                                      building their Angular web application. I enjoy working both on the client-side and server-side and aim to be competent on both.
                                     </p>
                                   </mat-card-content>
                                 </mat-card>
@@ -86,9 +85,9 @@
                                             <h6 class="title">Tech Stack:</h6>
                                             <ul class="desc">
                                                 <li>Ionic 3</li>
-                                                <li>Angular.JS (Ionic built on Angular)</li>
+                                                <li>Angular (Ionic built on Angular)</li>
                                                 <li>Prismic CMS API</li>
-                                                <li>Python API</li>
+                                                <li>Python/Flask API</li>
                                             </ul>
                                     </mat-card-content>     
                                     </mat-card>
@@ -126,6 +125,44 @@
                                         [cols]="'mdl-cell--8-col mdl-cell--2-offset-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone'">
                                     </app-showcase-card-list>
                                 </div>
+                            </div>
+                        </div>  
+                    </mat-tab>
+
+                    <mat-tab label="Patchdrums">
+                        <div class="demo-tab-content">
+                            <div class="mdl-grid">
+                                <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                                    <mat-card>
+                                        <mat-card-content>
+                                            <img style="width: 120px;" class="logo" src="../../assets/img/pdrums.png">
+                                            <p class="desc">
+                                                WIP...Patchdrums is a mobile app that features drumming video lessons on demand. Lessons are either bought in a pack or individually.
+                                                Purchases are processed through Apple's In-App Purchase API or Stripe if on Android.
+                                            </p>
+                                            <div class="mdl-grid">
+                                                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                                                    <img class="store-img" src="../../assets/img/ios.png">
+                                                </div>
+                                                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                                                    <img class="store-img" src="../../assets/img/android.png">
+                                                </div>
+                                            </div>
+                                            <h6 class="title">Tech Stack:</h6>
+                                            <ul class="desc">
+                                                <li>Ionic 3</li>
+                                                <li>Angular (Ionic built on Angular)</li>
+                                                <li>Prismic CMS API</li>
+                                                <li>Python/Flask API</li>
+                                            </ul>
+                                    </mat-card-content>     
+                                    </mat-card>
+                                </div>
+                                <!-- <app-showcase-card-list 
+                                    [width]="'300px'" 
+                                    [data]="karate_features"
+                                    [cols]="'mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone'">
+                                </app-showcase-card-list> -->
                             </div>
                         </div>  
                     </mat-tab>

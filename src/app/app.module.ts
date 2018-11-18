@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
-import { MatRadioModule, MatSliderModule, MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatListModule, MatIconModule, MatSidenavModule, MatSnackBarModule, MatToolbarModule, MatTabsModule, MatButtonModule, MatCardModule, MatCommonModule, MatDialogModule, MatProgressSpinnerModule } from '@angular/material';
+import { MaterialModule } from './modules/material/material.module';
 import 'hammerjs';
 import { ChartModule } from 'angular2-chartjs';
 
@@ -43,29 +43,15 @@ import { ShowcaseCardListComponent } from './components/showcase-card-list/showc
   ],
   imports: [
     BrowserModule,
+    MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     HttpModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     ChartModule,
-    MatSnackBarModule, 
-    MatTabsModule, 
-    MatButtonModule,
-    MatCommonModule, 
-    MatDialogModule, 
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatProgressSpinnerModule,
-    MatCardModule,
-    MatListModule,
-    MatProgressBarModule,
-    MatFormFieldModule, 
-    MatInputModule,
-    MatStepperModule,
-    MatSliderModule,
-    MatRadioModule
+    
   ],
   providers: [
     GlobalService,

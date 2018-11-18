@@ -9,19 +9,19 @@ export class StackComponent implements OnInit {
 
   front_end: any[] = [
     {
-      name: "Typescript (~2.3)",
+      name: "Typescript (~2.7.2)",
       info: "https://www.typescriptlang.org/",
       description: "Superset of Javascript for stricter typing.",
       src: "../../../assets/img/ts_icon.png"
     },
     {
-      name: "Angular (^4.2)",
+      name: "Angular (^6.0.3)",
       info: "https://angular.io/",
       description: "A heavy duty Front End Framework.",
       src: "../../../assets/img/ang_icon.png"
     },
     {
-      name: "Angular Material 2 (beta.12)",
+      name: "Angular Material (6.2)",
       info: "https://material.angular.io/",
       description: "Material Design Framework by Angular.",
       src: "../../../assets/img/mats_icon.png"

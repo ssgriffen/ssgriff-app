@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
-import {Http, Response, Headers, RequestMethod, ResponseContentType, URLSearchParams, RequestOptions} from '@angular/http';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import {Observable} from 'rxjs/Observable';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 import { GlobalService} from './global.service';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/map'
 
 @Injectable()
 export class ApiService {
   base_url: string;
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private router: Router,
     private global_service: GlobalService
   ) { 
@@ -32,10 +31,9 @@ export class ApiService {
     return this.http.post(url, encoded_form, {
          headers: headers,
          withCredentials: true
-    }).map((res: Response) => {
-        let data = res.json();
-        return data;
-    });
+    }).pipe(
+        map(this.extractData),
+        catchError(this.handleError));
 }
 
 public http_form_post_files(url: string, fileData: any): any {
@@ -52,58 +50,71 @@ public http_form_post_files(url: string, fileData: any): any {
     return this.http.post(url, fileData, {
          headers: headers,
          withCredentials: true
-    }).map((res: Response) => {
-        let data = res.json();
-        return data;
-    });
+    }).pipe(
+        map(this.extractData),
+        catchError(this.handleError));
 }
 
 public http_json_post(url: string, data: any, pdf: boolean): any {
-    // Check if offline for mobile app
-  
     // Create headers
-    let headers: any = new Headers();
-    headers.append('Content-Type', 'application/json');
-    let options: any = new RequestOptions({ headers: headers, withCredentials: true});
- 
+    let headers: any = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
+    
+
+    let httpOptions: any = {
+        headers: headers,
+        withCredentials: true,
+    };
+
+    // add special header info for pdfs
+    if(pdf){
+        httpOptions.responseType = 'blob';
+        httpOptions.observe = 'response';
+    }
+
+    return this.http.post(url, data, httpOptions).pipe(
+        map(this.extractData),
+        catchError(this.handleError)); 
+
     // Submit
-    return this.http.post(url, data, options).map((res: Response) => {
-        if(pdf) {
-            return res;
-        } else {
-            let data = res.json();
-            return data;     
-        }  
-    });
 }
 
 public http_get(url: string, to_json: boolean): any {
     // Create headers
-    let headers: any = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    let headers: any = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
 
-    //make unique (for ie)
-    url = url + "?q=" + Math.random();
-
+    if( !(url.includes("search") || url.includes("?")) ){
+        //make unique (for ie)
+        url = url + "?q=" + Math.random();
+    }
+    
     // Submit
-    if(to_json){
-        return this.http.get(url, {
-            headers: headers,
-            withCredentials: true
-        }).map((res: Response) => {
-            let data = res.json();
-            return data;
-        });
-    } 
-
     return this.http.get(url, {
         headers: headers,
         withCredentials: true
-    }).map((res: Response) => {
-        return res;
-    });;
-    
+    }).pipe(
+        map(this.extractData),
+        catchError(this.handleError));
 }
+
+public http_get_text(url: string, to_json: boolean): any {
+    // Create headers
+    let headers: any = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
+
+    if( !(url.includes("search") || url.includes("?")) ){
+        //make unique (for ie)
+        url = url + "?q=" + Math.random();
+    }
+    
+    // Submit
+    return this.http.get(url, {
+        responseType: 'text',
+        headers: headers,
+        withCredentials: true
+    }).pipe(
+        map(this.extractData),
+        catchError(this.handleError));
+}
+
 
 public signin(form_obj){
     return this.http_form_post(this.base_url + "/signin", form_obj);
@@ -169,5 +180,25 @@ public encodeObj(obj: any): string {
   let body: string = urlSearchParams.toString();
   return body;
 }
+private extractData(res: any) {
+    let body = res;
+    return body || {};
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong,
+      console.log(error);
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    // return an observable with a user-facing error message
+    return throwError('Something bad happened; please try again later.');
+  };
 
 }
