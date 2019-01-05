@@ -137,32 +137,32 @@
                                         <mat-card-content>
                                             <img style="width: 120px;" class="logo" src="../../assets/img/pdrums.png">
                                             <p class="desc">
-                                                WIP...Patchdrums is a mobile app that features drumming video lessons on demand. Lessons are either bought in a pack or individually.
-                                                Purchases are processed through Apple's In-App Purchase API or Stripe if on Android.
+                                                An interactive drum lesson app where Patch Mahoney covers current drumming concepts.
                                             </p>
                                             <div class="mdl-grid">
                                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-                                                    <img class="store-img" src="../../assets/img/ios.png">
+                                                    <img (click)="openLink('https://itunes.apple.com/app/id1441238216')" class="store-img" src="../../assets/img/ios.png">
                                                 </div>
                                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-                                                    <img class="store-img" src="../../assets/img/android.png">
+                                                    <img (click)="openLink('https://play.google.com/store/apps/details?id=com.patchdrums.phoneapp')" class="store-img" src="../../assets/img/android.png">
                                                 </div>
                                             </div>
                                             <h6 class="title">Tech Stack:</h6>
                                             <ul class="desc">
                                                 <li>Ionic 3</li>
-                                                <li>Angular (Ionic built on Angular)</li>
                                                 <li>Prismic CMS API</li>
                                                 <li>Python/Flask API</li>
+                                                <li>Stripe Payment Processing</li>
+                                                <li>IOS IAP Payment Processing</li>
                                             </ul>
                                     </mat-card-content>     
                                     </mat-card>
                                 </div>
-                                <!-- <app-showcase-card-list 
+                                <app-showcase-card-list 
                                     [width]="'300px'" 
-                                    [data]="karate_features"
+                                    [data]="patchdrums_features"
                                     [cols]="'mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone'">
-                                </app-showcase-card-list> -->
+                                </app-showcase-card-list>
                             </div>
                         </div>  
                     </mat-tab>

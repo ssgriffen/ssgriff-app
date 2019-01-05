@@ -22,6 +22,7 @@ export class PortfolioComponent implements AfterViewInit {
   back_skills: any[] = [];
   ac_features: any[] = [];
   karate_features: any[] = [];
+  patchdrums_features: any[] = [];
     
   constructor(
     private snackbar: SnackbarService,
@@ -31,6 +32,7 @@ export class PortfolioComponent implements AfterViewInit {
     this.back_skills = this.portfolio_service.back_skills;
     this.ac_features = this.portfolio_service.ac_features;
     this.karate_features = this.portfolio_service.karate_features;
+    this.patchdrums_features = this.portfolio_service.patchdrums_features;
   }
 
   ngAfterViewInit(): void {

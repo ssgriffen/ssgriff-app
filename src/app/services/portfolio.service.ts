@@ -174,6 +174,43 @@ export class PortfolioService {
         "A simple page reflecting information about the company and how to reach them. The information on this page is also fetched from the Prismic CMS API and parsed into HTML accordingly"
       ]
     },
+  ];
+
+  patchdrums_features: any[] = [
+    {
+      title: "Home",
+      active_img: 0,
+      pics: ["patchdrums_features/home.png"],
+      desc: [
+        "Externally managed content including video and content description."
+      ]
+    },
+    {
+      title: "Packs",
+      active_img: 0,
+      pics: ["patchdrums_features/packs.png", "patchdrums_features/packs-detail.png"],
+      desc: [
+        "Lessons are organized under categories (or packs). These packs can be purchased at a bulk discount.",
+        "Once the pack has been purchased, the user has access to all the lessons within that pack."
+      ]
+    },
+    {
+      title: "Lessons",
+      active_img: 0,
+      pics: ["patchdrums_features/lesson.png", "patchdrums_features/purchase.png"],
+      desc: [
+        "Lessons are available as individual items as well.",
+        "Individual lessons can be purchased via IAP on IOS or Stripe on Android."
+      ]
+    },
+    {
+      title: 'More',
+      active_img: 0,
+      pics: ["patchdrums_features/more.png"],
+      desc: [
+        "App version and support email can be found here. Additionally, users on IOS can restore purchases. Android users have access to an unlocker component."
+      ]
+    }
   ]
 
 }
